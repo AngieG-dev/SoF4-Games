@@ -3,8 +3,8 @@
 
 spring:
   datasource:
-    url: jdbc:postgresql://ep-XXXX.neon.tech/sofagamesdb?sslmode=require
-    username: REEMPLAZAR
+    url: jdbc:postgresql://ep-sparkling-tree-ac9xtymj-pooler.sa-east-1.aws.neon.tech/sofagamesdb?sslmode=require
+    username: neondb_owner
     password: REEMPLAZAR
 
 jwt:
