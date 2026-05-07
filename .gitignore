@@ -1,0 +1,6 @@
+# IntelliJ
+.idea
+
+# .env
+frontend/.env.local
+backend/src/main/resources/application-local.yaml

@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: sofagames
+
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/sofagamesdev}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+jwt:
+  secret: ${JWT_SECRET:clave-local-de-desarrollo-minimo-32-caracteres}
+  expiration:
+    ms: 604800000
+
+app:
+  cors:
+    allowed-origin: ${CORS_ALLOWED_ORIGIN:http://localhost:5173}
+
+server:
+  port: 8080

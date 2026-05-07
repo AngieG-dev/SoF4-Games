@@ -1,0 +1,11 @@
+# Copia este archivo como application-local.yaml y rellena tus valores.
+# NUNCA subas application-local.yaml a GitHub.
+
+spring:
+  datasource:
+    url: jdbc:postgresql://ep-XXXX.neon.tech/sofagamesdb?sslmode=require
+    username: REEMPLAZAR
+    password: REEMPLAZAR
+
+jwt:
+  secret: REEMPLAZAR_con_string_aleatorio_minimo_32_caracteres
