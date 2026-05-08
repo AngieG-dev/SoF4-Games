@@ -1,0 +1,649 @@
+{
+  "1671210": {
+    "steam_appid": 1671210,
+    "name": "DELTARUNE",
+    "short_description": "Dive into the parallel story to UNDERTALE! Fight or spare your way through action-packed battles as you explore a mysterious world alongside an endearing cast of new and familiar characters. Chapters 1-4 will be available on launch, with more planned as free updates!",
+    "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1671210/7ccda5b1631d2e60cc756a3271e845dbb9168821/header.jpg?t=1749252480",
+    "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1671210/capsule_231x87.jpg?t=1749252480",
+    "background_raw": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1671210/page_bg_raw.jpg?t=1749252480",
+    "website": "http://deltarune.com",
+    "is_free": false,
+    "price_overview": {
+      "currency": "CLP",
+      "initial": 1300000,
+      "final": 1300000,
+      "discount_percent": 0
+    },
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "4 JUN 2025"
+    },
+    "required_age": 0,
+    "controller_support": "full",
+    "supported_languages": "Inglés, Japonés",
+    "recommendations": {
+      "total": 91200
+    },
+    "achievements": null,
+    "system_requirements": {
+      "pc": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits<br></li><li><strong>SO:</strong> Windows 10 or higher<br></li><li><strong>Memoria:</strong> 2 GB de RAM<br></li><li><strong>Gráficos:</strong> 128 MB<br></li><li><strong>DirectX:</strong> Versión 12<br></li><li><strong>Almacenamiento:</strong> 1 GB de espacio disponible</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits<br></li><li><strong>SO:</strong> Windows 10 or higher<br></li><li><strong>Memoria:</strong> 4 GB de RAM<br></li><li><strong>Gráficos:</strong> 512MB<br></li><li><strong>Almacenamiento:</strong> 1 GB de espacio disponible</li></ul>"
+      },
+      "mac": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> Mac OS X 10.11 or later<br></li><li><strong>Memoria:</strong> 2 GB de RAM<br></li><li><strong>Almacenamiento:</strong> 1 GB de espacio disponible</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> <br></li><li><strong>Memoria:</strong> 4 GB de RAM<br></li><li><strong>Almacenamiento:</strong> 1 GB de espacio disponible</li></ul>"
+      },
+      "linux": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"></ul>"
+      }
+    },
+    "genres": [
+      { "id": "23", "description": "Indie" },
+      { "id": "3", "description": "Rol" }
+    ],
+    "categories": [
+      { "id": 2, "description": "Un jugador" },
+      { "id": 28, "description": "Compat. total con mando" },
+      { "id": 23, "description": "Steam Cloud" },
+      { "id": 62, "description": "Préstamo familiar" }
+    ]
+  },
+  "322170": {
+    "steam_appid": 322170,
+    "name": "Geometry Dash",
+    "short_description": "Jump and fly your way through danger in this rhythm-based action platformer!",
+    "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322170/header.jpg?t=1775300400",
+    "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322170/capsule_231x87.jpg?t=1775300400",
+    "background_raw": "https://store.akamai.steamstatic.com/images/storepagebackground/app/322170?t=1775300400",
+    "website": "https://geometrydash.com",
+    "is_free": false,
+    "price_overview": {
+      "currency": "CLP",
+      "initial": 300000,
+      "final": 300000,
+      "discount_percent": 0
+    },
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "22 DIC 2014"
+    },
+    "required_age": 0,
+    "controller_support": null,
+    "supported_languages": "Inglés",
+    "recommendations": {
+      "total": 539066
+    },
+    "achievements": {
+      "total": 547
+    },
+    "system_requirements": {
+      "pc": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO *:</strong> Windows XP<br></li><li><strong>Procesador:</strong> 2.0+ GHz<br></li><li><strong>Memoria:</strong> 512 MB de RAM<br></li><li><strong>Gráficos:</strong> OpenGL 2.0 support<br></li><li><strong>Almacenamiento:</strong> 100 MB de espacio disponible</li></ul>",
+        "recommended": null
+      },
+      "mac": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> Mac OS X 10.7<br></li><li><strong>Procesador:</strong> 2.0+ GHz<br></li><li><strong>Memoria:</strong> 512 MB de RAM<br></li><li><strong>Gráficos:</strong> OpenGL 2.0 support<br></li><li><strong>Almacenamiento:</strong> 100 MB de espacio disponible</li></ul>",
+        "recommended": null
+      },
+      "linux": {
+        "minimum": null,
+        "recommended": null
+      }
+    },
+    "genres": [
+      { "id": "1", "description": "Acción" },
+      { "id": "23", "description": "Indie" }
+    ],
+    "categories": [
+      { "id": 2, "description": "Un jugador" },
+      { "id": 22, "description": "Logros de Steam" },
+      { "id": 29, "description": "Cromos de Steam" },
+      { "id": 18, "description": "Compat. parcial con mando" },
+      { "id": 17, "description": "Incluye editor de niveles" },
+      { "id": 41, "description": "Remote Play en móvil" },
+      { "id": 42, "description": "Remote Play en tableta" },
+      { "id": 62, "description": "Préstamo familiar" }
+    ]
+  },
+  "2379780": {
+    "steam_appid": 2379780,
+    "name": "Balatro",
+    "short_description": "El roguelike de póker. Balatro es un hipnótico y genial constructor de mazos donde podrás jugar manos ilegales de póker, descubrir comodines que alterarán tus partidas y activar combos impresionantes que dispararán tu adrenalina.",
+    "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/7a85430784e4d613cdb0547414d8cf16ffa45747/header.jpg?t=1774958057",
+    "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/554b5f66f60e80b43f910cba21d23af16ed897be/capsule_231x87.jpg?t=1774958057",
+    "background_raw": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/page_bg_raw.jpg?t=1774958057",
+    "website": "https://www.playbalatro.com/",
+    "is_free": false,
+    "price_overview": {
+      "currency": "CLP",
+      "initial": 830000,
+      "final": 830000,
+      "discount_percent": 0
+    },
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "20 FEB 2024"
+    },
+    "required_age": 0,
+    "controller_support": "full",
+    "supported_languages": "Inglés, Francés, Italiano, Alemán, Español de España, Holandés, Japonés, Polaco, Portugués de Brasil, Chino simplificado, Español de Hispanoamérica, Chino tradicional",
+    "recommendations": {
+      "total": 153181
+    },
+    "achievements": {
+      "total": 31
+    },
+    "system_requirements": {
+      "pc": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits<br></li><li><strong>SO *:</strong> Windows 7, 8, 10, 11 x64<br></li><li><strong>Procesador:</strong> Intel Core i3<br></li><li><strong>Memoria:</strong> 1 GB de RAM<br></li><li><strong>Gráficos:</strong> OpenGL 2.1 compatible graphics card, integrated graphics<br></li><li><strong>Almacenamiento:</strong> 150 MB de espacio disponible</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits</li></ul>"
+      },
+      "mac": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> macOS 11 (Big Sur) or later<br></li><li><strong>Procesador:</strong> Any Intel or Apple Silicon processor<br></li><li><strong>Memoria:</strong> 1 GB de RAM<br></li><li><strong>Gráficos:</strong> 4 GB RAM<br></li><li><strong>Almacenamiento:</strong> 150 MB de espacio disponible</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"></ul>"
+      },
+      "linux": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"></ul>"
+      }
+    },
+    "genres": [
+      { "id": "4", "description": "Casual" },
+      { "id": "23", "description": "Indie" },
+      { "id": "2", "description": "Estrategia" }
+    ],
+    "categories": [
+      { "id": 2, "description": "Un jugador" },
+      { "id": 22, "description": "Logros de Steam" },
+      { "id": 28, "description": "Compat. total con mando" },
+      { "id": 29, "description": "Cromos de Steam" },
+      { "id": 66, "description": "Alternativas de color" },
+      { "id": 68, "description": "Controles de volumen personalizados" },
+      { "id": 76, "description": "Opción solo ratón" },
+      { "id": 74, "description": "Jugable sin restricciones de tiempo" },
+      { "id": 77, "description": "Opción solo táctil" },
+      { "id": 23, "description": "Steam Cloud" },
+      { "id": 62, "description": "Préstamo familiar" }
+    ]
+  },
+  "427520": {
+    "steam_appid": 427520,
+    "name": "Factorio",
+    "short_description": "Factorio is a game about building and creating automated factories to produce items of increasing complexity, within an infinite 2D world. Use your imagination to design your factory, combine simple elements into ingenious structures, and finally protect it from the creatures who don't really like you.",
+    "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/header.jpg?t=1763986204",
+    "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/capsule_231x87.jpg?t=1763986204",
+    "background_raw": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/page_bg_raw.jpg?t=1763986204",
+    "website": "https://www.factorio.com",
+    "is_free": false,
+    "price_overview": {
+      "currency": "CLP",
+      "initial": 1800000,
+      "final": 1800000,
+      "discount_percent": 0
+    },
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": true
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "14 AGO 2020"
+    },
+    "required_age": 0,
+    "controller_support": null,
+    "supported_languages": "Inglés, Francés, Italiano, Alemán, Español de España, Húngaro, Holandés, Noruego, Polaco, Portugués de Portugal, Portugués de Brasil, Rumano, Finés, Sueco, Checo, Ruso, Ucraniano, Japonés, Chino simplificado, Chino tradicional, Coreano, Turco, Griego, Español de Hispanoamérica, Tailandés, Vietnamita, Bielorruso, Catalán, Kazajo, Georgiano",
+    "recommendations": {
+      "total": 190171
+    },
+    "achievements": {
+      "total": 88
+    },
+    "system_requirements": {
+      "pc": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> Windows 11, 10<br></li><li><strong>Procesador:</strong> Quad core 3Ghz+<br></li><li><strong>Memoria:</strong> 8 GB de RAM<br></li><li><strong>Gráficos:</strong> DirectX 11 capable GPU with 1GB VRAM - GeForce GTX 750 Ti, Radeon R7 360 or Intel UHD Graphics 730<br></li><li><strong>DirectX:</strong> Versión 11<br></li><li><strong>Almacenamiento:</strong> 5 GB de espacio disponible<br></li><li><strong>Notas adicionales:</strong> Normal sprite resolution, Low quality compression, 1080p resolution</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> Windows 11, 10<br></li><li><strong>Procesador:</strong> Quad core 4Ghz+ from 2020 or newer<br></li><li><strong>Memoria:</strong> 16 GB de RAM<br></li><li><strong>Gráficos:</strong> DirectX 11 capable GPU with 4 GB VRAM - GeForce GTX 1050 Ti, Radeon RX 570, Intel Arc<br></li><li><strong>DirectX:</strong> Versión 11<br></li><li><strong>Almacenamiento:</strong> 10 GB de espacio disponible<br></li><li><strong>Notas adicionales:</strong> High sprite resolution, High quality compression</li></ul>"
+      },
+      "mac": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> OS X 10.10 Yosemite<br></li><li><strong>Procesador:</strong> 2016 Mac<br></li><li><strong>Memoria:</strong> 8 GB de RAM<br></li><li><strong>Almacenamiento:</strong> 5 GB de espacio disponible<br></li><li><strong>Notas adicionales:</strong> Normal sprite resolution, Low quality compression, 1080p resolution</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li><strong>Procesador:</strong> 2020 Apple Silicon<br></li><li><strong>Memoria:</strong> 16 GB de RAM<br></li><li><strong>Almacenamiento:</strong> 10 GB de espacio disponible<br></li><li><strong>Notas adicionales:</strong> High sprite resolution, High quality compression</li></ul>"
+      },
+      "linux": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> Linux (tarball installation)<br></li><li><strong>Procesador:</strong> Dual core 3Ghz+<br></li><li><strong>Memoria:</strong> 8 GB de RAM<br></li><li><strong>Gráficos:</strong> DirectX 11 capable GPU with 1GB VRAM - GeForce GTX 750 Ti, Radeon R7 360 or Intel UHD Graphics 730<br></li><li><strong>Almacenamiento:</strong> 5 GB de espacio disponible<br></li><li><strong>Tarjeta de sonido:</strong> PulseAudio<br></li><li><strong>Notas adicionales:</strong> Normal sprite resolution, Low quality compression, 1080p resolution</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> Linux (tarball installation)<br></li><li><strong>Procesador:</strong> Quad core 3GHz+<br></li><li><strong>Memoria:</strong> 16 GB de RAM<br></li><li><strong>Gráficos:</strong> DirectX 11 capable GPU with 4 GB VRAM - GeForce GTX 1050 Ti, Radeon RX 570, Intel Arc<br></li><li><strong>Almacenamiento:</strong> 10 GB de espacio disponible<br></li><li><strong>Tarjeta de sonido:</strong> PulseAudio<br></li><li><strong>Notas adicionales:</strong> High sprite resolution, High quality compression</li></ul>"
+      }
+    },
+    "genres": [
+      { "id": "4", "description": "Casual" },
+      { "id": "23", "description": "Indie" },
+      { "id": "28", "description": "Simuladores" },
+      { "id": "2", "description": "Estrategia" }
+    ],
+    "categories": [
+      { "id": 2, "description": "Un jugador" },
+      { "id": 1, "description": "Multijugador" },
+      { "id": 9, "description": "Cooperativo" },
+      { "id": 38, "description": "Cooperativo en línea" },
+      { "id": 48, "description": "Cooperativo en LAN" },
+      { "id": 27, "description": "Multijugador multiplataforma" },
+      { "id": 22, "description": "Logros de Steam" },
+      { "id": 64, "description": "Tamaño del texto ajustable" },
+      { "id": 67, "description": "Comodidad de la cámara" },
+      { "id": 68, "description": "Controles de volumen personalizados" },
+      { "id": 78, "description": "Dificultad ajustable" },
+      { "id": 74, "description": "Jugable sin restricciones de tiempo" },
+      { "id": 79, "description": "Guardar en cualquier momento" },
+      { "id": 65, "description": "Opciones de subtítulos" },
+      { "id": 18, "description": "Compat. parcial con mando" },
+      { "id": 23, "description": "Steam Cloud" },
+      { "id": 17, "description": "Incluye editor de niveles" },
+      { "id": 42, "description": "Remote Play en tableta" },
+      { "id": 62, "description": "Préstamo familiar" }
+    ]
+  },
+  "250900": {
+    "steam_appid": 250900,
+    "name": "The Binding of Isaac: Rebirth",
+    "short_description": "The Binding of Isaac: Rebirth is a randomly generated action RPG shooter with heavy Rogue-like elements. Following Isaac on his journey players will find bizarre treasures that change Isaac’s form giving him super human abilities and enabling him to fight off droves of mysterious creatures, discover secrets and fight his way to safety.",
+    "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250900/header.jpg?t=1731977365",
+    "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250900/capsule_231x87.jpg?t=1731977365",
+    "background_raw": "https://store.akamai.steamstatic.com/images/storepagebackground/app/250900?t=1731977365",
+    "website": "http://www.bindingofisaac.com",
+    "is_free": false,
+    "price_overview": {
+      "currency": "CLP",
+      "initial": 640000,
+      "final": 640000,
+      "discount_percent": 0
+    },
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": true
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "4 NOV 2014"
+    },
+    "required_age": 0,
+    "controller_support": "full",
+    "supported_languages": "Inglés",
+    "recommendations": {
+      "total": 354063
+    },
+    "achievements": {
+      "total": 641
+    },
+    "system_requirements": {
+      "pc": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> XP<br></li><li><strong>Procesador:</strong> Core 2 Duo<br></li><li><strong>Memoria:</strong> 2 GB de RAM<br></li><li><strong>Gráficos:</strong> Discreet video card<br></li><li><strong>Almacenamiento:</strong> 449 MB de espacio disponible<br></li><li><strong>Tarjeta de sonido:</strong> Yes</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li><strong>SO *:</strong> Windows 8 / 7 / Vista / XP<br></li><li><strong>Procesador:</strong> 2.4 GHz Quad Core 2.0 (or higher)<br></li><li><strong>Memoria:</strong> 8 GB de RAM<br></li><li><strong>Gráficos:</strong> Intel HD Graphics 4000 and higher, ATI Radeon HD-Series 4650 and higher, Nvidia GeForce 2xx-Series and up<br></li><li><strong>Almacenamiento:</strong> 449 MB de espacio disponible<br></li><li><strong>Tarjeta de sonido:</strong> Yes</li></ul>"
+      },
+      "mac": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> 10.8<br></li><li><strong>Procesador:</strong> Core 2 Duo<br></li><li><strong>Memoria:</strong> 2 GB de RAM<br></li><li><strong>Gráficos:</strong> Discreet video card<br></li><li><strong>Almacenamiento:</strong> 449 MB de espacio disponible<br></li><li><strong>Tarjeta de sonido:</strong> Yes</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> 10.9<br></li><li><strong>Procesador:</strong> 2.4 GHz Dual Core 2.0 (or higher)<br></li><li><strong>Memoria:</strong> 8 GB de RAM<br></li><li><strong>Gráficos:</strong> Intel HD Graphics 4000 and higher, ATI Radeon HD-Series 4650 and higher, Nvidia GeForce 2xx-Series and up.<br></li><li><strong>Almacenamiento:</strong> 449 MB de espacio disponible<br></li><li><strong>Tarjeta de sonido:</strong> Yes</li></ul>"
+      },
+      "linux": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>Procesador:</strong> Core 2 Duo<br></li><li><strong>Memoria:</strong> 2 GB de RAM<br></li><li><strong>Gráficos:</strong> Discreet video card<br></li><li><strong>Almacenamiento:</strong> 449 MB de espacio disponible<br></li><li><strong>Tarjeta de sonido:</strong> Yes</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li><strong>Procesador:</strong> 2.4 GHz Dual Core 2.0 (or higher)<br></li><li><strong>Memoria:</strong> 8 GB de RAM<br></li><li><strong>Gráficos:</strong> Discreet video card<br></li><li><strong>Almacenamiento:</strong> 449 MB de espacio disponible<br></li><li><strong>Tarjeta de sonido:</strong> Yes</li></ul>"
+      }
+    },
+    "genres": [
+      { "id": "1", "description": "Acción" }
+    ],
+    "categories": [
+      { "id": 2, "description": "Un jugador" },
+      { "id": 1, "description": "Multijugador" },
+      { "id": 24, "description": "Pantalla partida/compartida" },
+      { "id": 22, "description": "Logros de Steam" },
+      { "id": 28, "description": "Compat. total con mando" },
+      { "id": 29, "description": "Cromos de Steam" },
+      { "id": 23, "description": "Steam Cloud" },
+      { "id": 43, "description": "Remote Play en TV" },
+      { "id": 44, "description": "Remote Play Together" },
+      { "id": 62, "description": "Préstamo familiar" }
+    ]
+  },
+  "646570": {
+    "steam_appid": 646570,
+    "name": "Slay the Spire",
+    "short_description": "Hemos fusionado juegos de cartas y roguelikes para crear el mejor juego de cartas para un solo jugador que pudiéramos. Crea un mazo único, encuentra criaturas extrañas, descubre reliquias de inmenso poder y mata La Aguja.",
+    "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/header.jpg?t=1774015376",
+    "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/capsule_231x87.jpg?t=1774015376",
+    "background_raw": "https://store.akamai.steamstatic.com/images/storepagebackground/app/646570?t=1774015376",
+    "website": "https://www.megacrit.com/",
+    "is_free": false,
+    "price_overview": {
+      "currency": "CLP",
+      "initial": 1300000,
+      "final": 325000,
+      "discount_percent": 75
+    },
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": true
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "23 ENE 2019"
+    },
+    "required_age": 0,
+    "controller_support": "full",
+    "supported_languages": "Inglés, Chino simplificado, Francés, Alemán, Coreano, Ruso, Japonés, Polaco, Ucraniano, Español de España, Italiano, Holandés, Chino tradicional, Turco, Tailandés, Portugués de Brasil, Vietnamita",
+    "recommendations": {
+      "total": 186479
+    },
+    "achievements": {
+      "total": 46
+    },
+    "system_requirements": {
+      "pc": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO *:</strong> Windows XP, Vista, 7, 8/8.1, 10<br></li><li><strong>Procesador:</strong> 2.0 Ghz<br></li><li><strong>Memoria:</strong> 2 GB de RAM<br></li><li><strong>Gráficos:</strong> 1Gb Video Memory, capable of OpenGL 3.0+ support (2.1 with ARB extensions acceptable)<br></li><li><strong>Almacenamiento:</strong> 1 GB de espacio disponible</li></ul>",
+        "recommended": null
+      },
+      "mac": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> OSX 10.14+<br></li><li><strong>Procesador:</strong> 2.0 Ghz<br></li><li><strong>Memoria:</strong> 2 GB de RAM<br></li><li><strong>Gráficos:</strong> 1Gb Video Memory, capable of OpenGL 3.0+ support (2.1 with ARB extensions acceptable)<br></li><li><strong>Almacenamiento:</strong> 1 GB de espacio disponible</li></ul>",
+        "recommended": null
+      },
+      "linux": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> Ubuntu 14.04 LTS<br></li><li><strong>Procesador:</strong> 2.0 Ghz<br></li><li><strong>Memoria:</strong> 2 GB de RAM<br></li><li><strong>Gráficos:</strong> 1Gb Video Memory, capable of OpenGL 3.0+ support (2.1 with ARB extensions acceptable)<br></li><li><strong>Almacenamiento:</strong> 1 GB de espacio disponible</li></ul>",
+        "recommended": null
+      }
+    },
+    "genres": [
+      { "id": "23", "description": "Indie" },
+      { "id": "2", "description": "Estrategia" }
+    ],
+    "categories": [
+      { "id": 2, "description": "Un jugador" },
+      { "id": 22, "description": "Logros de Steam" },
+      { "id": 28, "description": "Compat. total con mando" },
+      { "id": 29, "description": "Cromos de Steam" },
+      { "id": 30, "description": "Steam Workshop" },
+      { "id": 64, "description": "Tamaño del texto ajustable" },
+      { "id": 68, "description": "Controles de volumen personalizados" },
+      { "id": 76, "description": "Opción solo ratón" },
+      { "id": 74, "description": "Jugable sin restricciones de tiempo" },
+      { "id": 79, "description": "Guardar en cualquier momento" },
+      { "id": 77, "description": "Opción solo táctil" },
+      { "id": 23, "description": "Steam Cloud" },
+      { "id": 15, "description": "Estadísticas" },
+      { "id": 25, "description": "Tablas de clasificación de Steam" },
+      { "id": 41, "description": "Remote Play en móvil" },
+      { "id": 42, "description": "Remote Play en tableta" },
+      { "id": 43, "description": "Remote Play en TV" },
+      { "id": 62, "description": "Préstamo familiar" }
+    ]
+  },
+  "294100": {
+    "steam_appid": 294100,
+    "name": "RimWorld",
+    "short_description": "Un simulador de colonias de ciencia ficción dirigido por una brillante Inteligencia Artificial que narrará la historia. Genera historias al simular psicología, ecología, combate, clima, biomas, diplomacia, relaciones interpersonales, arte, medicina, comercio y mucho más.",
+    "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/76e0613b8197327299d5dbabb0a7fd7828a689a2/header.jpg?t=1776194377",
+    "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/a805ac5e3ceb54a2d7d3e1c1049907f1ef8bbb89/capsule_231x87.jpg?t=1776194377",
+    "background_raw": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/294100/page_bg_raw.jpg?t=1776194377",
+    "website": "https://ludeon.com",
+    "is_free": false,
+    "price_overview": {
+      "currency": "CLP",
+      "initial": 1800000,
+      "final": 1800000,
+      "discount_percent": 0
+    },
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": true
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "17 OCT 2018"
+    },
+    "required_age": 0,
+    "controller_support": null,
+    "supported_languages": "Inglés, Francés, Alemán, Polaco, Ruso, Italiano, Español de España, Checo, Danés, Holandés, Húngaro, Japonés, Noruego, Portugués de Portugal, Portugués de Brasil, Chino simplificado, Sueco, Chino tradicional, Turco, Ucraniano, Finés, Coreano, Rumano, Español de Hispanoamérica",
+    "recommendations": {
+      "total": 201747
+    },
+    "achievements": null,
+    "system_requirements": {
+      "pc": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO *:</strong> Windows 7<br></li><li><strong>Procesador:</strong> Core 2 Duo<br></li><li><strong>Memoria:</strong> 4 GB de RAM<br></li><li><strong>Gráficos:</strong> Intel HD Graphics 4000 or other shader model 4.0<br></li><li><strong>Almacenamiento:</strong> 1 GB de espacio disponible</li></ul>",
+        "recommended": null
+      },
+      "mac": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> macOS 10.12<br></li><li><strong>Procesador:</strong> Core 2 Duo<br></li><li><strong>Memoria:</strong> 4 GB de RAM<br></li><li><strong>Gráficos:</strong> Intel HD Graphics 4000 or other shader model 4.0<br></li><li><strong>Almacenamiento:</strong> 1 GB de espacio disponible</li></ul>",
+        "recommended": null
+      },
+      "linux": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>Procesador:</strong> Core 2 Duo<br></li><li><strong>Memoria:</strong> 4 GB de RAM<br></li><li><strong>Gráficos:</strong> Intel HD Graphics 4000 or other shader model 4.0<br></li><li><strong>Almacenamiento:</strong> 1 GB de espacio disponible</li></ul>",
+        "recommended": null
+      }
+    },
+    "genres": [
+      { "id": "23", "description": "Indie" },
+      { "id": "28", "description": "Simuladores" },
+      { "id": "2", "description": "Estrategia" }
+    ],
+    "categories": [
+      { "id": 2, "description": "Un jugador" },
+      { "id": 30, "description": "Steam Workshop" },
+      { "id": 64, "description": "Tamaño del texto ajustable" },
+      { "id": 67, "description": "Comodidad de la cámara" },
+      { "id": 68, "description": "Controles de volumen personalizados" },
+      { "id": 78, "description": "Dificultad ajustable" },
+      { "id": 76, "description": "Opción solo ratón" },
+      { "id": 74, "description": "Jugable sin restricciones de tiempo" },
+      { "id": 79, "description": "Guardar en cualquier momento" },
+      { "id": 18, "description": "Compat. parcial con mando" },
+      { "id": 23, "description": "Steam Cloud" },
+      { "id": 42, "description": "Remote Play en tableta" },
+      { "id": 62, "description": "Préstamo familiar" }
+    ]
+  },
+  "588650": {
+    "steam_appid": 588650,
+    "name": "Dead Cells",
+    "short_description": "Dead Cells es un juego de acción de plataformas rogue-lite inspirado en juegos tipo metroidvania. Explorarás un castillo enorme en constante cambio... asumiendo que logres abrirte paso enfrentando a quienes se interpongan en tu camino en combates 2D de almas.",
+    "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/588650/header.jpg?t=1772726488",
+    "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/588650/capsule_231x87.jpg?t=1772726488",
+    "background_raw": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/588650/page_bg_raw.jpg?t=1772726488",
+    "website": "https://deadcells.com",
+    "is_free": false,
+    "price_overview": {
+      "currency": "CLP",
+      "initial": 1350000,
+      "final": 1350000,
+      "discount_percent": 0
+    },
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": true
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "6 AGO 2018"
+    },
+    "required_age": 0,
+    "controller_support": "full",
+    "supported_languages": "Inglés, Francés, Chino simplificado, Italiano, Alemán, Español de España, Japonés, Portugués de Brasil, Ruso, Turco, Coreano, Chino tradicional, Español de Hispanoamérica",
+    "recommendations": {
+      "total": 152996
+    },
+    "achievements": {
+      "total": 121
+    },
+    "system_requirements": {
+      "pc": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO *:</strong> Windows 7+<br></li><li><strong>Procesador:</strong> Intel i5+<br></li><li><strong>Memoria:</strong> 2 GB de RAM<br></li><li><strong>Gráficos:</strong> Nvidia 450 GTS / Radeon HD 5750 or better<br></li><li><strong>Almacenamiento:</strong> 500 MB de espacio disponible<br></li><li><strong>Notas adicionales:</strong> DirectX 9.1+ or OpenGL 3.2+</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li><strong>SO *:</strong> Windows 7+<br></li><li><strong>Procesador:</strong> Intel i5+<br></li><li><strong>Memoria:</strong> 4 GB de RAM<br></li><li><strong>Gráficos:</strong> Nvidia GTX 460 / Radeon HD 7800 or better<br></li><li><strong>Almacenamiento:</strong> 500 MB de espacio disponible<br></li><li><strong>Notas adicionales:</strong> DirectX 9.1+ or OpenGL 3.2+</li></ul>"
+      },
+      "mac": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> Mavericks 10.9 or later<br></li><li><strong>Procesador:</strong> Intel i5+<br></li><li><strong>Memoria:</strong> 2 GB de RAM<br></li><li><strong>Gráficos:</strong> OpenGL 3.2+<br></li><li><strong>Almacenamiento:</strong> 500 MB de espacio disponible</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> Mavericks 10.9 or later<br></li><li><strong>Procesador:</strong> Intel i5+<br></li><li><strong>Memoria:</strong> 4 GB de RAM<br></li><li><strong>Gráficos:</strong> OpenGL 3.2+<br></li><li><strong>Almacenamiento:</strong> 500 MB de espacio disponible</li></ul>"
+      },
+      "linux": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> Ubuntu 12.04 or later<br></li><li><strong>Procesador:</strong> Intel i5+<br></li><li><strong>Memoria:</strong> 2 GB de RAM<br></li><li><strong>Gráficos:</strong> OpenGL 3.2+<br></li><li><strong>Almacenamiento:</strong> 500 MB de espacio disponible</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> Ubuntu 12.04 or later<br></li><li><strong>Procesador:</strong> Intel i5+<br></li><li><strong>Memoria:</strong> 4 GB de RAM<br></li><li><strong>Gráficos:</strong> OpenGL 3.2+<br></li><li><strong>Almacenamiento:</strong> 500 MB de espacio disponible</li></ul>"
+      }
+    },
+    "genres": [
+      { "id": "1", "description": "Acción" },
+      { "id": "23", "description": "Indie" }
+    ],
+    "categories": [
+      { "id": 2, "description": "Un jugador" },
+      { "id": 22, "description": "Logros de Steam" },
+      { "id": 28, "description": "Compat. total con mando" },
+      { "id": 29, "description": "Cromos de Steam" },
+      { "id": 30, "description": "Steam Workshop" },
+      { "id": 23, "description": "Steam Cloud" },
+      { "id": 41, "description": "Remote Play en móvil" },
+      { "id": 42, "description": "Remote Play en tableta" },
+      { "id": 43, "description": "Remote Play en TV" },
+      { "id": 62, "description": "Préstamo familiar" }
+    ]
+  },
+  "1062090": {
+    "steam_appid": 1062090,
+    "name": "Timberborn",
+    "short_description": "La humanidad dejó la Tierra hecha un páramo y se extinguió, pero algunas especies se adaptaron y evolucionaron. Escoge una de las facciones de castores y comprueba hasta dónde puede llegar tu colonia en este juego de construcción de ciudades.",
+    "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1062090/header.jpg?t=1776328287",
+    "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1062090/capsule_231x87.jpg?t=1776328287",
+    "background_raw": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1062090/page_bg_raw.jpg?t=1776328287",
+    "website": "https://mechanistry.com",
+    "is_free": false,
+    "price_overview": {
+      "currency": "CLP",
+      "initial": 1400000,
+      "final": 1400000,
+      "discount_percent": 0
+    },
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "12 MAR 2026"
+    },
+    "required_age": 0,
+    "controller_support": null,
+    "supported_languages": "Inglés, Francés, Alemán, Español de España, Polaco, Portugués de Brasil, Ruso, Chino simplificado, Italiano, Japonés, Coreano, Ucraniano",
+    "recommendations": {
+      "total": 36320
+    },
+    "achievements": {
+      "total": 59
+    },
+    "system_requirements": {
+      "pc": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits<br></li><li><strong>SO:</strong> Windows 10 or newer<br></li><li><strong>Procesador:</strong> 2-core 1.7 GHz or better<br></li><li><strong>Memoria:</strong> 4 GB de RAM<br></li><li><strong>Gráficos:</strong> GeForce GTX 660, Radeon RX 460 or similar<br></li><li><strong>DirectX:</strong> Versión 11<br></li><li><strong>Almacenamiento:</strong> 3 GB de espacio disponible</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits<br></li><li><strong>SO:</strong> Windows 10 or newer<br></li><li><strong>Procesador:</strong> 4-core 2.9 GHz or better<br></li><li><strong>Memoria:</strong> 16 GB de RAM<br></li><li><strong>Gráficos:</strong> GeForce RTX 2070, Radeon RX 5700 or similar<br></li><li><strong>DirectX:</strong> Versión 11<br></li><li><strong>Almacenamiento:</strong> 5 GB de espacio disponible</li></ul>"
+      },
+      "mac": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits<br></li><li><strong>SO:</strong> macOS 10.13 or newer<br></li><li><strong>Procesador:</strong> 2-core 1.7 GHz or better<br></li><li><strong>Memoria:</strong> 4 GB de RAM<br></li><li><strong>Gráficos:</strong> Radeon Pro 560X or similar<br></li><li><strong>Almacenamiento:</strong> 3 GB de espacio disponible</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits<br></li><li><strong>SO:</strong> macOS 10.13 or newer<br></li><li><strong>Procesador:</strong> Apple M1, 4-core 2.9 GHz or better<br></li><li><strong>Memoria:</strong> 16 GB de RAM<br></li><li><strong>Gráficos:</strong> Apple M1, Radeon Pro 580 or similar<br></li><li><strong>Almacenamiento:</strong> 5 GB de espacio disponible</li></ul>"
+      },
+      "linux": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits</li></ul>"
+      }
+    },
+    "genres": [
+      { "id": "23", "description": "Indie" },
+      { "id": "28", "description": "Simuladores" },
+      { "id": "2", "description": "Estrategia" }
+    ],
+    "categories": [
+      { "id": 2, "description": "Un jugador" },
+      { "id": 22, "description": "Logros de Steam" },
+      { "id": 23, "description": "Steam Cloud" },
+      { "id": 17, "description": "Incluye editor de niveles" },
+      { "id": 62, "description": "Préstamo familiar" }
+    ]
+  },
+  "1167630": {
+    "steam_appid": 1167630,
+    "name": "Teardown",
+    "short_description": "Planea y ejecuta el atraco perfecto en un mundo completamente destruible. En Teardown puedes romper y mover todo para crear atajos.",
+    "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1167630/header.jpg?t=1776678144",
+    "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1167630/capsule_231x87.jpg?t=1776678144",
+    "background_raw": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1167630/page_bg_raw.jpg?t=1776678144",
+    "website": "https://teardowngame.com",
+    "is_free": false,
+    "price_overview": {
+      "currency": "CLP",
+      "initial": 1500000,
+      "final": 1500000,
+      "discount_percent": 0
+    },
+    "platforms": {
+      "windows": true,
+      "mac": false,
+      "linux": false
+    },
+    "release_date": {
+      "coming_soon": false,
+      "date": "21 ABR 2022"
+    },
+    "required_age": 0,
+    "controller_support": "full",
+    "supported_languages": "Inglés, Francés, Italiano, Alemán, Español de España, Japonés, Polaco, Ruso, Chino simplificado",
+    "recommendations": {
+      "total": 91338
+    },
+    "achievements": {
+      "total": 26
+    },
+    "system_requirements": {
+      "pc": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits<br></li><li><strong>SO:</strong> Windows 10 or 11<br></li><li><strong>Procesador:</strong> Quad Core CPU<br></li><li><strong>Memoria:</strong> 4 GB de RAM<br></li><li><strong>Gráficos:</strong> NVIDIA GeForce GTX 1060 or similar. 3 Gb VRAM.<br></li><li><strong>DirectX:</strong> Versión 12<br></li><li><strong>Almacenamiento:</strong> 4 GB de espacio disponible</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits<br></li><li><strong>SO:</strong> Windows 10 or 11<br></li><li><strong>Procesador:</strong> Intel Core i7 or better<br></li><li><strong>Memoria:</strong> 4 GB de RAM<br></li><li><strong>Gráficos:</strong> NVIDIA GeForce GTX 1080 or similar. 8 Gb VRAM.<br></li><li><strong>DirectX:</strong> Versión 12<br></li><li><strong>Almacenamiento:</strong> 4 GB de espacio disponible</li></ul>"
+      },
+      "mac": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits</li></ul>"
+      },
+      "linux": {
+        "minimum": "<strong>Mínimo:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits</li></ul>",
+        "recommended": "<strong>Recomendado:</strong><br><ul class=\"bb_ul\"><li>Requiere un procesador y un sistema operativo de 64 bits</li></ul>"
+      }
+    },
+    "genres": [
+      { "id": "1", "description": "Acción" },
+      { "id": "23", "description": "Indie" },
+      { "id": "28", "description": "Simuladores" }
+    ],
+    "categories": [
+      { "id": 2, "description": "Un jugador" },
+      { "id": 1, "description": "Multijugador" },
+      { "id": 38, "description": "Cooperativo en línea" },
+      { "id": 22, "description": "Logros de Steam" },
+      { "id": 28, "description": "Compat. total con mando" },
+      { "id": 30, "description": "Steam Workshop" },
+      { "id": 23, "description": "Steam Cloud" },
+      { "id": 62, "description": "Préstamo familiar" }
+    ]
+  }
+}
