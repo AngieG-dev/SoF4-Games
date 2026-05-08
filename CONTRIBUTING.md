@@ -27,12 +27,39 @@ main          ← producción (solo acepta merges desde develop vía PR aprobado
 
 **Este flujo aplica a todos los miembros del equipo, incluida la dueña del repo.** Nadie hace push directo a `main` o `develop` — ambas ramas tienen protección activada y el push será rechazado.
 
-**Pasos para trabajar en una feature nueva:**
+### Configuración inicial del fork
+
+Al hacer fork en GitHub, asegúrate de **desmarcar** la opción *"Copy the `main` branch only"*. Si ya hiciste el fork y solo tienes `main`, ejecuta esto una sola vez:
+
+```bash
+# 1. Clona tu fork (si aún no lo tienes local)
+git clone https://github.com/TU_USUARIO/repo.git
+cd repo
+
+# 2. Agrega el repositorio original como remote
+git remote add upstream https://github.com/raiksha/repo.git
+
+# 3. Trae todas las ramas del upstream
+git fetch upstream
+
+# 4. Crea tu rama develop local basada en la del upstream
+git checkout -b develop upstream/develop
+
+# 5. Súbela a tu fork
+git push origin develop
+```
+
+Con esto tu fork queda con `main` y `develop`. No repitas esto después — es solo configuración inicial.
+
+---
+
+### Pasos para trabajar en una feature nueva
 
 ```bash
 # 1. Asegúrate de estar en develop y tenerlo actualizado
 git checkout develop
-git pull origin develop
+git pull upstream develop        # trae los cambios del repo original
+git push origin develop          # mantiene tu fork sincronizado
 
 # 2. Crea tu rama de feature
 git checkout -b feature/descriptive-name
@@ -41,15 +68,18 @@ git checkout -b feature/descriptive-name
 git add .
 git commit -m "feat: brief description of what you did"
 
-# 4. Antes de abrir la PR, trae los cambios de develop
-git fetch origin
-git rebase origin/develop
+# 4. Antes de abrir la PR, trae los cambios de develop y resuelve conflictos LOCALMENTE
+git fetch upstream
+git rebase upstream/develop
+# Si hay conflictos: resuélvelos, luego git add + git rebase --continue
 
 # 5. Sube tu rama — en este momento se hace visible en GitHub
 git push origin feature/descriptive-name
 
 # 6. Abre una Pull Request hacia develop en GitHub
 ```
+
+> **Importante:** los conflictos se resuelven en tu máquina, antes de abrir la PR. Una PR con conflictos no se mergea.
 
 **Sobre las ramas remotas:** una rama solo aparece en GitHub cuando haces `git push`. Después de que su PR se mergea a `develop`, la rama feature debe borrarse del remoto — GitHub muestra un botón "Delete branch" justo después del merge. Mantén el repo limpio.
 
