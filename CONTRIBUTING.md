@@ -114,7 +114,7 @@ refactor/game-service-cleanup
 Los commits van en inglés. Formato obligatorio:
 
 ```
-type: brief description in lowercase
+type(scope): brief description in lowercase
 ```
 
 **Tipos válidos:**
@@ -129,23 +129,53 @@ type: brief description in lowercase
 | `test` | Agregar o modificar tests |
 | `chore` | Tareas de mantenimiento (dependencias, config) |
 
+**Scopes válidos:**
+
+El scope indica qué área del proyecto afecta el commit. Usa siempre uno de los siguientes — si no encaja ninguno, consulta con [@raiksha](https://github.com/raiksha).
+
+| Scope | Cuándo usarlo |
+|-------|--------------|
+| `store` | Página de tienda / landing y sus componentes |
+| `gamepage` | Página de detalle de juego |
+| `navbar` | Barra de navegación |
+| `footer` | Footer |
+| `auth` | Login, registro y flujo de autenticación |
+| `cart` | Carrito de compras |
+| `checkout` | Flujo de pago y confirmación |
+| `library` | Biblioteca del usuario |
+| `profile` | Perfil y configuración del usuario |
+| `games` | Endpoints y lógica de backend para juegos |
+| `users` | Endpoints y lógica de backend para usuarios |
+| `purchases` | Endpoints y lógica de backend para compras |
+| `db` | Schema SQL, migraciones, seed data |
+| `types` | Interfaces y tipos TypeScript compartidos |
+| `deps` | Instalación o actualización de dependencias |
+| `config` | Archivos de configuración (vite, tailwind, eslint, etc.) |
+
 **Ejemplos correctos:**
 
 ```bash
-git commit -m "feat: add GameCard component with image and price"
-git commit -m "fix: correct cart total when duplicate items are present"
-git commit -m "docs: update installation instructions in README"
-git commit -m "chore: update axios dependency to 1.7.2"
-git commit -m "refactor: extract auth logic into useAuth hook"
+git commit -m "feat(store): add GameCard component with image and price"
+git commit -m "feat(gamepage): add screenshots gallery with thumbnail navigation"
+git commit -m "fix(cart): correct total when duplicate items are present"
+git commit -m "docs(contributing): add scope convention to commit guidelines"
+git commit -m "chore(deps): install tailwindcss and lucide-react"
+git commit -m "chore(config): add tailwind vite plugin to vite.config.ts"
+git commit -m "refactor(auth): extract login logic into useAuth hook"
+git commit -m "style(navbar): adjust search bar collapse animation on mobile"
+git commit -m "feat(db): add screenshots table to schema"
+git commit -m "feat(games): add GET /api/v1/games endpoint with pagination"
 ```
 
 **Ejemplos incorrectos:**
 
 ```bash
-git commit -m "cambios"               # ← demasiado vago
-git commit -m "Fixed the bug"         # ← sin tipo, con mayúscula
-git commit -m "WIP"                   # ← nunca subir trabajo sin terminar
-git commit -m "feat: GameCard"        # ← no describe qué hace
+git commit -m "cambios"                      # ← demasiado vago, sin tipo ni scope
+git commit -m "feat: add GameCard"           # ← falta el scope
+git commit -m "Fixed the bug"                # ← sin tipo ni scope, con mayúscula
+git commit -m "WIP"                          # ← nunca subir trabajo sin terminar
+git commit -m "feat(store): GameCard"        # ← no describe qué hace
+git commit -m "feat(frontend): add stuff"    # ← scope demasiado amplio
 ```
 
 Un commit debe representar **una sola cosa**. Si tu descripción necesita la palabra "and", probablemente son dos commits.
@@ -172,29 +202,29 @@ El título de una PR sigue el mismo formato que los commits individuales. La dif
 Formato:
 
 ```
-type: brief description of the complete feature
+type(scope): brief description of the complete feature
 ```
 
 **Ejemplos correctos:**
 
 ```
-feat: add store page with game grid and search
-feat: implement JWT authentication (register and login)
-feat: add shopping cart with persistent state
-fix: resolve CORS error between frontend and backend
-refactor: split GameCard into smaller sub-components
-chore: configure Vercel deployment and environment variables
-docs: add API usage section to README
+feat(store): add store page with game grid and search
+feat(auth): implement JWT authentication (register and login)
+feat(cart): add shopping cart with persistent state
+fix(config): resolve CORS error between frontend and backend
+refactor(store): split GameCard into smaller sub-components
+chore(config): configure Vercel deployment and environment variables
+docs(contributing): add scope convention to commit guidelines
 ```
 
 **Ejemplos incorrectos:**
 
 ```
-Store page                        ← sin tipo
-feat: changes                     ← demasiado vago
-Feat: Add Store Page              ← mayúsculas
-feat: add store page and fix bug  ← dos cosas distintas en una PR
-fix stuff                         ← sin tipo, sin detalle
+Store page                               ← sin tipo ni scope
+feat: add store page                     ← falta el scope
+Feat(Store): Add Store Page              ← mayúsculas
+feat(store): add store page and fix bug  ← dos cosas distintas en una PR
+fix stuff                                ← sin tipo ni scope
 ```
 
 La misma regla que los commits: si el título necesita "and" para dos cosas no relacionadas, probablemente son dos PRs.
