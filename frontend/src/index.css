@@ -1,10 +1,142 @@
+@import "tailwindcss";
+
+/* ── Variables de diseño ────────────────────────────────────────────── */
+:root {
+  /* Paleta Deep Nebula */
+  --color-bg:           #05010d;
+  --color-bg-card:      #0d031f;
+  --color-bg-nav:       rgba(5, 1, 13, 0.98);
+  --color-border:       rgba(255, 0, 208, 0.2);
+  --color-accent:       #ff00d0;
+  --color-accent-alt:   #00f2ff;
+  --color-text:         #ffffff;
+  --color-text-muted:   #8d77a8;
+
+  /* Gradientes */
+  --grad-hero:          linear-gradient(90deg, #1a0236 0%, #05010d 100%);
+  --grad-card:          linear-gradient(180deg, #14022a 0%, #05010d 100%);
+  --grad-hero-overlay:  linear-gradient(90deg, #05010d 35%, transparent 75%);
+
+  /* Tipografías */
+  --font-title:         'Montserrat', sans-serif;   /* Títulos h1-h3 */
+  --font-body:          'Lato', sans-serif;          /* Párrafos y texto general */
+  --font-cta:           'Poppins', sans-serif;       /* Botones y banners */
+  --font-price:         'Inter', sans-serif;         /* Precios y números */
+
+  /* Espaciado base */
+  --nav-height:         64px;
+
+  @media (max-width: 1023px) {
+    --nav-height: 112px;
+  }
+
+  /* Efectos */
+  --glow-accent:        0 0 20px rgba(255, 0, 208, 0.4);
+  --glow-alt:           0 0 20px rgba(0, 242, 255, 0.4);
+  --card-shadow:        0 4px 24px rgba(0, 0, 0, 0.5);
+  --card-shadow-hover:  0 16px 48px rgba(0, 0, 0, 0.7), 0 0 24px rgba(255, 0, 208, 0.3);
+
+  /* Bordes */
+  --radius-card:        12px;
+  --radius-btn:         6px;
+  --radius-badge:       4px;
+}
+
+/* ── Reset base ─────────────────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Tipografía base ────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-cta);
+  border: none;
+  outline: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Scrollbar personalizado ────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-card);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-muted);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* ── Utilidades de animación compartidas ────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: var(--glow-accent); }
+  50%       { box-shadow: 0 0 32px rgba(255, 0, 208, 0.7); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.nav-tab {
+  padding: 4px 8px;
+}
+
+@media (min-width: 1024px) {
+  .nav-tab {
+    padding: 6px 16px;
+  }
+}
+
+/* Altura del navbar — más alto en mobile por la barra de búsqueda */
+@media (max-width: 1023px) {
+  :root {
+    --nav-height: 112px;
+  }
+}
+/* Columnas del footer */
+@media (max-width: 767px) {
+  .footer-col + .footer-col {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.5rem;
+  }
 }
