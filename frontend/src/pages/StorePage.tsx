@@ -73,7 +73,7 @@ function HeroCarousel({ games }: { games: Game[] }) {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url(${game.background_raw || game.header_image})`,
+          backgroundImage: `url(${game.screenshots?.[0]?.path_full || game.header_image})`,
           transition: 'opacity 0.4s ease',
           opacity: animating ? 0 : 1,
         }}
@@ -84,7 +84,7 @@ function HeroCarousel({ games }: { games: Game[] }) {
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(90deg, rgba(5,1,13,1) 0%, rgba(5,1,13,1) 40%, rgba(5,1,13,0.7) 50%, rgba(5,1,13,0) 60%)',
+          background: 'linear-gradient(90deg, rgba(5,1,13,0.95) 0%, rgba(5,1,13,0.8) 20%, rgba(5,1,13,0.7) 40%, rgba(5,1,13,0) 60%)',
           // En mobile: gradiente vertical desde abajo
           ...(isMobile ? {
             background: 'linear-gradient(180deg, rgba(5,1,13,0.3) 0%, rgba(5,1,13,0.85) 60%, rgba(5,1,13,1) 100%)'
@@ -305,7 +305,7 @@ function GameCard({ game }: { game: Game }) {
       onClick={() => navigate(`/game/${game.steam_appid}`)}
     >
       {/* Imagen con zoom sutil en hover */}
-      <div className="overflow-hidden flex-shrink-0" style={{ height: '140px' }}>
+      <div className="overflow-hidden flex-shrink-0" style={{ height: '160px' }}>
         <img
           src={game.header_image}
           alt={game.name}
@@ -384,7 +384,7 @@ function GameCard({ game }: { game: Game }) {
                 ? 'linear-gradient(135deg, var(--color-accent), var(--color-accent-alt))'
                 : 'rgba(255,255,255,0.04)',
               color:      hovered ? '#fff' : 'var(--color-text-muted)',
-              border:     `1px solid ${hovered ? 'transparent' : 'var(--color-border)'}`,
+              border:     hovered ? 'none' : `1px solid var(--color-border)`,
               boxShadow:  hovered ? 'var(--glow-accent)' : 'none',
               padding: '8px 0',
             }}

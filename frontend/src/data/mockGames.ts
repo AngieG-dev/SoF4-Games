@@ -15,8 +15,7 @@ export const mockGames: Game[] = [
     capsule_image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/capsule_231x87.jpg',
     background_raw: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/page_bg_generated_v6b.jpg',
     screenshots: [
-      { id: 0, path_thumbnail: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/ss_0bc1ea04d47ad1c3fb4a000e87d41a6d0a1a5015.600x338.jpg', path_full: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/ss_0bc1ea04d47ad1c3fb4a000e87d41a6d0a1a5015.1920x1080.jpg' },
-      { id: 1, path_thumbnail: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/ss_b19de3b5bca0f73a16be36543f03dec7eb9e15e2.600x338.jpg', path_full: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/ss_b19de3b5bca0f73a16be36543f03dec7eb9e15e2.1920x1080.jpg' },
+      { id: 0, path_thumbnail: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/ss_0bc1ea04d47ad1c3fb4a000e87d41a6d0a1a5015.600x338.jpg', path_full: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1145360/ss_c0fed447426b69981cf1721756acf75369801b31.1920x1080.jpg' },
     ],
     is_free: false,
     price_overview: { currency: 'CLP', initial: 1699000, final: 1699000, discount_percent: 0, initial_formatted: 'CLP$ 16.990', final_formatted: 'CLP$ 16.990' },
@@ -49,7 +48,7 @@ export const mockGames: Game[] = [
     capsule_image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/capsule_231x87.jpg',
     background_raw: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/page_bg_generated_v6b.jpg',
     screenshots: [
-      { id: 0, path_thumbnail: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_94a44e6f98f4f1a1c8a1c8b7e6d5c4b3a2f1e0d.600x338.jpg', path_full: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_94a44e6f98f4f1a1c8a1c8b7e6d5c4b3a2f1e0d.1920x1080.jpg' },
+      { id: 0, path_thumbnail: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_94a44e6f98f4f1a1c8a1c8b7e6d5c4b3a2f1e0d.600x338.jpg', path_full: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2379780/ss_3be65a7dd3be072d567e11883d208861a7e959fa.1920x1080.jpg' },
     ],
     is_free: false,
     price_overview: { currency: 'CLP', initial: 1249900, final: 999900, discount_percent: 20, initial_formatted: 'CLP$ 12.499', final_formatted: 'CLP$ 9.999' },
@@ -82,9 +81,7 @@ export const mockGames: Game[] = [
     capsule_image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/capsule_231x87.jpg',
     background_raw: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/page_bg_generated_v6b.jpg',
     screenshots: [
-      { id: 0, path_thumbnail: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_5c3f391a27e5e4ccb6dde85a40c98baa4f44ea3.600x338.jpg', path_full: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_5c3f391a27e5e4ccb6dde85a40c98baa4f44ea3.1920x1080.jpg' },
-      { id: 1, path_thumbnail: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_a2c4e6f8a0b2d4f6a8c0e2f4a6c8e0f2a4c6e8.600x338.jpg', path_full: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_a2c4e6f8a0b2d4f6a8c0e2f4a6c8e0f2a4c6e8.1920x1080.jpg' },
-      { id: 2, path_thumbnail: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_b3d5f7a9c1e3f5a7c9e1f3a5c7e9f1a3c5e7f9.600x338.jpg', path_full: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_b3d5f7a9c1e3f5a7c9e1f3a5c7e9f1a3c5e7f9.1920x1080.jpg' },
+      { id: 0, path_thumbnail: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_5c3f391a27e5e4ccb6dde85a40c98baa4f44ea3.600x338.jpg', path_full: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/367520/ss_f1f594e1057a124d289a5905b53b5a0f820982c0.1920x1080.jpg' },
     ],
     is_free: false,
     price_overview: { currency: 'CLP', initial: 829900, final: 414900, discount_percent: 50, initial_formatted: 'CLP$ 8.299', final_formatted: 'CLP$ 4.149' },
@@ -117,7 +114,7 @@ export const mockGames: Game[] = [
     capsule_image: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/capsule_231x87.jpg',
     background_raw: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/page_bg_generated_v6b.jpg',
     screenshots: [
-      { id: 0, path_thumbnail: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9.600x338.jpg', path_full: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9.1920x1080.jpg' },
+      { id: 0, path_thumbnail: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9.600x338.jpg', path_full: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/646570/ss_01aa3e7759e457bfbf2422f31c325d7b3ba8a6eb.1920x1080.jpg' },
     ],
     is_free: false,
     price_overview: { currency: 'CLP', initial: 1099900, final: 549900, discount_percent: 50, initial_formatted: 'CLP$ 10.999', final_formatted: 'CLP$ 5.499' },
