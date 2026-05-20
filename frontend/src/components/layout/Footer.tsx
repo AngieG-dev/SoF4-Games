@@ -1,4 +1,4 @@
-// components/Footer.tsx
+// components/layout/Footer.tsx
 import { Link } from 'react-router-dom'
 import { Gamepad2 } from 'lucide-react'
 
@@ -16,7 +16,7 @@ export default function Footer() {
       }}
     >
       {/* ── Fila principal: 3 columnas ── */}
-      <div 
+      <div
         className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10"
         style={{ paddingBottom: '1.5rem' }}
       >
