@@ -50,100 +50,108 @@ public class GameDataLoader implements ApplicationListener<ApplicationReadyEvent
             Map<String, Object> catalog = objectMapper.readValue(resource.getInputStream(), Map.class);
 
             for (Map.Entry<String, Object> entry : catalog.entrySet()) {
-                @SuppressWarnings("unchecked")
-                Map<String, Object> gameData = (Map<String, Object>) entry.getValue();
-
-                Game game = mapToGame(gameData);
-                Game savedGame = gameRepository.save(game);
-
-                // Process genres
-                if (gameData.containsKey("genres")) {
+                String gameId = entry.getKey();
+                try {
                     @SuppressWarnings("unchecked")
-                    List<Map<String, Object>> genres = (List<Map<String, Object>>) gameData.get("genres");
-                    for (Map<String, Object> genreData : genres) {
-                        Integer id = parseIntSafe(genreData.get("id"));
-                        String name = (String) genreData.get("description") != null ? (String) genreData.get("description") : (String) genreData.get("name");
-                        Genre genre = genreRepository.findById(id)
-                                .orElseGet(() -> {
-                                    Genre g = new Genre();
-                                    g.setId(id);
-                                    g.setName(name != null ? name : "Unknown");
-                                    return genreRepository.save(g);
-                                });
-                        savedGame.getGenres().add(genre);
-                    }
-                }
+                    Map<String, Object> gameData = (Map<String, Object>) entry.getValue();
 
-                // Process categories
-                if (gameData.containsKey("categories")) {
-                    @SuppressWarnings("unchecked")
-                    List<Map<String, Object>> categories = (List<Map<String, Object>>) gameData.get("categories");
-                    for (Map<String, Object> catData : categories) {
-                        Integer id = parseIntSafe(catData.get("id"));
-                        String name = (String) catData.get("description") != null ? (String) catData.get("description") : (String) catData.get("name");
-                        Category category = categoryRepository.findById(id)
-                                .orElseGet(() -> {
-                                    Category c = new Category();
-                                    c.setId(id);
-                                    c.setName(name != null ? name : "Unknown");
-                                    return categoryRepository.save(c);
-                                });
-                        savedGame.getCategories().add(category);
-                    }
-                }
+                    Game game = mapToGame(gameData);
+                    Game savedGame = gameRepository.save(game);
 
-                // Process developers
-                if (gameData.containsKey("developers")) {
-                    @SuppressWarnings("unchecked")
-                    List<String> developers = (List<String>) gameData.get("developers");
-                    for (String devName : developers) {
-                        if (devName == null || devName.isBlank()) continue;
-                        Developer developer = developerRepository.findByName(devName)
-                                .orElseGet(() -> {
-                                    Developer d = new Developer();
-                                    d.setName(devName);
-                                    return developerRepository.save(d);
-                                });
-                        savedGame.getDevelopers().add(developer);
-                    }
-                }
-
-                // Process publishers
-                if (gameData.containsKey("publishers")) {
-                    @SuppressWarnings("unchecked")
-                    List<String> publishers = (List<String>) gameData.get("publishers");
-                    for (String pubName : publishers) {
-                        if (pubName == null || pubName.isBlank()) continue;
-                        Publisher publisher = publisherRepository.findByName(pubName)
-                                .orElseGet(() -> {
-                                    Publisher p = new Publisher();
-                                    p.setName(pubName);
-                                    return publisherRepository.save(p);
-                                });
-                        savedGame.getPublishers().add(publisher);
-                    }
-                }
-
-                // Process screenshots
-                if (gameData.containsKey("screenshots")) {
-                    @SuppressWarnings("unchecked")
-                    List<Map<String, Object>> screenshots = (List<Map<String, Object>>) gameData.get("screenshots");
-                    for (Map<String, Object> shotData : screenshots) {
-                        Screenshot screenshot = new Screenshot();
-                        screenshot.setGame(savedGame);
-                        screenshot.setSteamId(((Number) shotData.get("id")).intValue());
-                        screenshot.setPathThumbnail((String) shotData.get("path_thumbnail"));
-                        screenshot.setPathFull((String) shotData.get("path_full"));
-                        Integer order = (Integer) shotData.get("display_order");
-                        if (order == null) {
-                            order = screenshot.getSteamId();
+                    // Process genres
+                    if (gameData.containsKey("genres")) {
+                        @SuppressWarnings("unchecked")
+                        List<Map<String, Object>> genres = (List<Map<String, Object>>) gameData.get("genres");
+                        for (Map<String, Object> genreData : genres) {
+                            Integer id = parseIntSafe(genreData.get("id"));
+                            String name = (String) genreData.get("description") != null ? (String) genreData.get("description") : (String) genreData.get("name");
+                            Genre genre = genreRepository.findById(id)
+                                    .orElseGet(() -> {
+                                        Genre g = new Genre();
+                                        g.setId(id);
+                                        g.setName(name != null ? name : "Unknown");
+                                        return genreRepository.save(g);
+                                    });
+                            savedGame.getGenres().add(genre);
                         }
-                        screenshot.setDisplayOrder(order);
-                        screenshotRepository.save(screenshot);
                     }
-                }
 
-                gameRepository.save(savedGame);
+                    // Process categories
+                    if (gameData.containsKey("categories")) {
+                        @SuppressWarnings("unchecked")
+                        List<Map<String, Object>> categories = (List<Map<String, Object>>) gameData.get("categories");
+                        for (Map<String, Object> catData : categories) {
+                            Integer id = parseIntSafe(catData.get("id"));
+                            String name = (String) catData.get("description") != null ? (String) catData.get("description") : (String) catData.get("name");
+                            Category category = categoryRepository.findById(id)
+                                    .orElseGet(() -> {
+                                        Category c = new Category();
+                                        c.setId(id);
+                                        c.setName(name != null ? name : "Unknown");
+                                        return categoryRepository.save(c);
+                                    });
+                                    savedGame.getCategories().add(category);
+                        }
+                    }
+
+                    // Process developers
+                    if (gameData.containsKey("developers")) {
+                        @SuppressWarnings("unchecked")
+                        List<String> developers = (List<String>) gameData.get("developers");
+                        for (String devName : developers) {
+                            if (devName == null || devName.isBlank()) continue;
+                            Developer developer = developerRepository.findByName(devName)
+                                    .orElseGet(() -> {
+                                        Developer d = new Developer();
+                                        d.setName(devName);
+                                        return developerRepository.save(d);
+                                    });
+                            savedGame.getDevelopers().add(developer);
+                        }
+                    }
+
+                    // Process publishers
+                    if (gameData.containsKey("publishers")) {
+                        @SuppressWarnings("unchecked")
+                        List<String> publishers = (List<String>) gameData.get("publishers");
+                        for (String pubName : publishers) {
+                            if (pubName == null || pubName.isBlank()) continue;
+                            Publisher publisher = publisherRepository.findByName(pubName)
+                                    .orElseGet(() -> {
+                                        Publisher p = new Publisher();
+                                        p.setName(pubName);
+                                        return publisherRepository.save(p);
+                                    });
+                            savedGame.getPublishers().add(publisher);
+                        }
+                    }
+
+                    // Process screenshots
+                    if (gameData.containsKey("screenshots")) {
+                        @SuppressWarnings("unchecked")
+                        List<Map<String, Object>> screenshots = (List<Map<String, Object>>) gameData.get("screenshots");
+                        for (Map<String, Object> shotData : screenshots) {
+                            Screenshot screenshot = new Screenshot();
+                            screenshot.setGame(savedGame);
+                            Object idObj = shotData.get("id");
+                            screenshot.setSteamId(idObj instanceof Number ? ((Number) idObj).intValue() : 0);
+                            screenshot.setPathThumbnail((String) shotData.get("path_thumbnail"));
+                            screenshot.setPathFull((String) shotData.get("path_full"));
+                            Integer order = (Integer) shotData.get("display_order");
+                            if (order == null) {
+                                order = screenshot.getSteamId();
+                            }
+                            screenshot.setDisplayOrder(order);
+                            screenshotRepository.save(screenshot);
+                        }
+                    }
+
+                    gameRepository.save(savedGame);
+                } catch (Exception e) {
+                    System.err.println("Error processing game with ID: " + gameId + ". Error: " + e.getMessage());
+                    e.printStackTrace();
+                    throw e; // Relanzar para detener y ver el error
+                }
             }
 
             System.out.println("Finished loading game data. Total games: " + gameRepository.count());
