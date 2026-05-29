@@ -1,5 +1,3 @@
-// data/mockGames.ts
-// Datos reales de Steam para desarrollo. Reemplazar por /api/v1/games cuando el backend esté listo.
 import type { Game } from '../types'
 
 export const HERO_APPIDS = [1145360, 2379780, 367520, 646570]
@@ -270,8 +268,3 @@ export const mockGames: Game[] = [
     controller_support: 'full',
   },
 ]
-
-export const heroGames    = mockGames.filter(g => HERO_APPIDS.includes(g.steam_appid))
-export const saleGames    = mockGames.filter(g => (g.price_overview?.discount_percent ?? 0) > 0)
-export const recentGames  = [...mockGames].reverse().slice(0, 4)
-export const topRatedGames = [...mockGames].sort((a, b) => b.total_positive - a.total_positive).slice(0, 4)

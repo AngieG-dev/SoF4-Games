@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Ignore package-lock.json, since we'll use pnpm from now on
+package-lock.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -23,6 +26,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Variables de entorno
+# Environment variables
 .env
 .env.local

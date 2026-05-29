@@ -1,9 +1,3 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// types/game.ts
-// Tipos que reflejan exactamente la estructura de steam_catalogo_final.json
-// y lo que devuelve la API del backend (/api/v1/games).
-// ─────────────────────────────────────────────────────────────────────────────
-
 export type Collection = 'indie_latam' | 'indie_global' | 'top_steam'
 
 export interface Screenshot {
@@ -60,16 +54,15 @@ export interface Achievements {
   total: number
 }
 
-// Tipo principal — un juego completo del catálogo
 export interface Game {
   steam_appid:          number
   collection:           Collection
   name:                 string
   short_description:    string
   detailed_description: string
-  header_image:         string   // 460×215 — para cards
-  capsule_image:        string   // 231×87  — para cards pequeñas
-  background_raw:       string   // fondo para GamePage
+  header_image:         string
+  capsule_image:        string
+  background_raw:       string
   screenshots:          Screenshot[]
   is_free:              boolean
   price_overview:       PriceOverview | null
@@ -93,7 +86,6 @@ export interface Game {
   controller_support:   string | null
 }
 
-// Versión reducida para cards en la tienda (solo los campos que se muestran)
 export interface GameCard {
   steam_appid:      number
   name:             string
@@ -105,7 +97,6 @@ export interface GameCard {
   collection:       Collection
 }
 
-// Lo que necesita el Hero carousel
 export interface HeroGame {
   steam_appid:       number
   name:              string
