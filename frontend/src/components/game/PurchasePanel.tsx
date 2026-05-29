@@ -8,11 +8,12 @@ export default function PurchasePanel({ game }: { game: Game }) {
 
   return (
     <aside
-      className="rounded-xl p-5 flex flex-col gap-4 sticky top-20"
+      className="rounded-xl p-6 flex flex-col gap-4 sticky top-20"
       style={{
         background: 'var(--color-bg-card)',
         border:     '1px solid var(--color-border)',
         minWidth:   '260px',
+        padding:    '1.5rem'
       }}
     >
       {/* Nombre y estudio */}
@@ -35,6 +36,7 @@ export default function PurchasePanel({ game }: { game: Game }) {
               border:     '1px solid var(--color-border)',
               color:      'var(--color-text-muted)',
               fontFamily: 'var(--font-body)',
+              padding:    '3px 10px',
             }}
           >
             {g.description}
@@ -80,6 +82,7 @@ export default function PurchasePanel({ game }: { game: Game }) {
           background: 'linear-gradient(135deg, var(--color-accent), var(--color-accent-alt))',
           color:      '#fff',
           boxShadow:  'var(--glow-accent)',
+          padding:    '10px 28px',
         }}
         onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1.02)' }}
         onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1)' }}
@@ -102,6 +105,7 @@ export default function PurchasePanel({ game }: { game: Game }) {
               background: 'transparent',
               color:      'var(--color-text-muted)',
               border:     '1px solid var(--color-border)',
+              padding:    '3px 10px',
             }}
             onMouseEnter={e => {
               const el = e.currentTarget as HTMLElement
@@ -125,7 +129,11 @@ export default function PurchasePanel({ game }: { game: Game }) {
       {/* Ficha técnica */}
       <div
         className="rounded-lg p-4 flex flex-col gap-2.5"
-        style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid var(--color-border)' }}
+        style={{ 
+          background: 'rgba(255,255,255,0.03)', 
+          border:     '1px solid var(--color-border)',
+          padding:    '0.7rem',
+        }}
       >
         <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: 'var(--color-text-muted)', fontFamily: 'var(--font-title)' }}>
           Ficha técnica

@@ -4,7 +4,20 @@ import { useNavigate } from 'react-router-dom'
 import type { Game } from '../../types'
 import DiscountBadge from './DiscountBadge'
 
-export default function GameCard({ game }: { game: Game }) {
+interface GameCardProps {
+  game: Game
+  showDescription?: boolean
+  showGenres?: boolean
+  compact?: boolean
+  showCartButton?: boolean
+}
+
+export default function GameCard({
+  game,
+  showGenres = true,
+  compact = false,
+  showCartButton = true,
+}: GameCardProps) {
   const navigate = useNavigate()
   const [hovered, setHovered] = useState(false)
   const po = game.price_overview
@@ -25,7 +38,7 @@ export default function GameCard({ game }: { game: Game }) {
       onClick={() => navigate(`/game/${game.steam_appid}`)}
     >
       {/* Imagen con zoom sutil en hover */}
-      <div className="overflow-hidden flex-shrink-0" style={{ height: '160px' }}>
+      <div className="overflow-hidden flex-shrink-0" style={{ height: compact ? '120px' : '160px' }}>
         <img
           src={game.header_image}
           alt={game.name}
@@ -48,7 +61,7 @@ export default function GameCard({ game }: { game: Game }) {
       )}
 
       {/* Info */}
-      <div className="flex flex-col flex-1" style={{ padding: '0.875rem', gap: '0.5rem' }}>
+      <div className="flex flex-col flex-1" style={{ padding: compact ? '0.5rem' : '0.875rem', gap: '0.5rem' }}>
         <h3
           className="text-base font-semibold line-clamp-1"
           style={{
@@ -60,12 +73,14 @@ export default function GameCard({ game }: { game: Game }) {
           {game.name}
         </h3>
 
-        <p
-          className="text-xs line-clamp-1"
-          style={{ color: 'var(--color-text-muted)', fontFamily: 'var(--font-body)' }}
-        >
-          {game.genres.map(g => g.description).join(' · ')}
-        </p>
+        {showGenres && !compact && (
+          <p
+            className="text-xs line-clamp-1"
+            style={{ color: 'var(--color-text-muted)', fontFamily: 'var(--font-body)' }}
+          >
+            {game.genres.map(g => g.description).join(' · ')}
+          </p>
+        )}
 
         {/* Precio */}
         <div className="flex items-center gap-2 mt-1 flex-wrap">
@@ -95,24 +110,26 @@ export default function GameCard({ game }: { game: Game }) {
         </div>
 
         {/* Botón añadir al carrito */}
-        <div style={{ marginTop: 'auto' }}>
-          <button
-            className="w-full mt-2 py-2 rounded-md text-xs font-semibold transition-all duration-200"
-            style={{
-              fontFamily: 'var(--font-cta)',
-              background: hovered
-                ? 'linear-gradient(135deg, var(--color-accent), var(--color-accent-alt))'
-                : 'rgba(255,255,255,0.04)',
-              color:      hovered ? '#fff' : 'var(--color-text-muted)',
-              border:     hovered ? 'none' : `1px solid var(--color-border)`,
-              boxShadow:  hovered ? 'var(--glow-accent)' : 'none',
-              padding: '8px 0',
-            }}
-            onClick={e => { e.stopPropagation() /* TODO: addToCart */ }}
-          >
-            Añadir al carrito
-          </button>
-        </div>
+        {showCartButton && (
+          <div style={{ marginTop: 'auto' }}>
+            <button
+              className="w-full mt-2 py-2 rounded-md text-xs font-semibold transition-all duration-200"
+              style={{
+                fontFamily: 'var(--font-cta)',
+                background: hovered
+                  ? 'linear-gradient(135deg, var(--color-accent), var(--color-accent-alt))'
+                  : 'rgba(255,255,255,0.04)',
+                color:      hovered ? '#fff' : 'var(--color-text-muted)',
+                border:     hovered ? 'none' : `1px solid var(--color-border)`,
+                boxShadow:  hovered ? 'var(--glow-accent)' : 'none',
+                padding: '8px 0',
+              }}
+              onClick={e => { e.stopPropagation() /* TODO: addToCart */ }}
+            >
+              Añadir al carrito
+            </button>
+          </div>
+        )}
       </div>
     </article>
   )

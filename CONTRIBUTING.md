@@ -33,11 +33,11 @@ Al hacer fork en GitHub, asegúrate de **desmarcar** la opción *"Copy the `main
 
 ```bash
 # 1. Clona tu fork (si aún no lo tienes local)
-git clone https://github.com/TU_USUARIO/repo.git
+git clone https://github.com/TU_USUARIO/SoF4-Games.git
 cd repo
 
 # 2. Agrega el repositorio original como remote
-git remote add upstream https://github.com/raiksha/repo.git
+git remote add upstream https://github.com/raiksha/SoF4-Games.git
 
 # 3. Trae todas las ramas del upstream
 git fetch upstream

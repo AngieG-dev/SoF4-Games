@@ -7,9 +7,11 @@ interface GameSectionProps {
   title:   string
   games:   Game[]
   linkTo:  string
+  compact?: boolean
+  showCartButton?: boolean
 }
 
-export default function GameSection({ title, games, linkTo }: GameSectionProps) {
+export default function GameSection({ title, games, linkTo, compact = false, showCartButton = true }: GameSectionProps) {
   const navigate = useNavigate()
 
   return (
@@ -42,7 +44,7 @@ export default function GameSection({ title, games, linkTo }: GameSectionProps) 
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {games.slice(0, 4).map(game => (
-          <GameCard key={game.steam_appid} game={game} />
+          <GameCard key={game.steam_appid} game={game} compact={compact} showCartButton={showCartButton} />
         ))}
       </div>
     </section>

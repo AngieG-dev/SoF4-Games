@@ -20,7 +20,7 @@ export default function Gallery({ game }: { game: Game }) {
   return (
     <div>
       {/* Imagen principal */}
-      <div className="rounded-xl overflow-hidden mb-3" style={{ height: '340px' }}>
+      <div className="rounded-xl overflow-hidden mb-3" style={{ height: '33.5rem' }}>
         <img
           src={screenshots[active]?.path_full || screenshots[active]?.path_thumbnail}
           alt={`${game.name} screenshot ${active + 1}`}
