@@ -1,4 +1,3 @@
-// components/game/TabBar.tsx
 export type Tab = 'descripcion' | 'requisitos' | 'resenas'
 
 interface TabBarProps {

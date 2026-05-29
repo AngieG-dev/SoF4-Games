@@ -1,4 +1,3 @@
-// components/game/PurchasePanel.tsx
 import { ShoppingCart, Heart, Gift } from 'lucide-react'
 import type { Game } from '../../types'
 import { getPlatformLabel } from '../../utils/priceUtils'

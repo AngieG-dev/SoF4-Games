@@ -1,4 +1,3 @@
-// components/game/tabs/TabRequisitos.tsx
 import type { Game } from '../../../types'
 
 function ReqBlock({ title, text }: { title: string; text: string }) {

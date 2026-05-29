@@ -1,4 +1,3 @@
-// components/layout/Navbar.tsx
 import { useState, useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ShoppingCart, Search, X, Gamepad2, User } from 'lucide-react'

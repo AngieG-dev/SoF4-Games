@@ -1,4 +1,3 @@
-// pages/GamePage.tsx
 import { useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'

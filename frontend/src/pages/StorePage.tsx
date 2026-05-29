@@ -1,57 +1,35 @@
-// pages/StorePage.tsx
-//
-// CAMBIOS respecto a la versión anterior:
-//   - Eliminado import de heroGames/saleGames/recentGames/topRatedGames (datos mock)
-//   - Añadido useState + useEffect para cargar juegos desde el backend real
-//   - Las secciones (Rebajas, Lo más reciente, Mejor valorados) ahora filtran
-//     y ordenan los datos que llegan del backend, igual que antes hacían los selectores
-
 import { useState, useEffect } from 'react'
 import type { Game } from '../types'
 import { gameService } from '../services/gameService'
 import HeroCarousel from '../components/store/HeroCarousel'
 import GameSection  from '../components/store/GameSection'
 
-// IDs de los juegos que aparecen en el hero carousel.
-// Son los mismos que estaban en mockGames.ts → HERO_APPIDS.
-// Cuando el backend devuelva los juegos reales, estos IDs deben existir en la BD.
 const HERO_APPIDS = [1145360, 2379780, 367520, 646570]
 
 export default function StorePage() {
 
-    // ── Estado ────────────────────────────────────────────────────────────────
-    // games: array vacío hasta que el backend responda
     const [games,   setGames]   = useState<Game[]>([])
-    // loading: true mientras esperamos → mostramos spinner
     const [loading, setLoading] = useState(true)
-    // error: null si todo OK, string con mensaje si algo falla
     const [error,   setError]   = useState<string | null>(null)
 
-    // ── Llamada al backend ────────────────────────────────────────────────────
-    // useEffect con [] se ejecuta UNA SOLA VEZ cuando la página aparece en pantalla.
-    // Si quitaras el [], se ejecutaría en cada re-render → bucle infinito.
+
     useEffect(() => {
         gameService.getAll()
             .then(data => {
-                setGames(data)    // guardamos los juegos
-                setLoading(false) // ya no cargamos
+                setGames(data)
+                setLoading(false)
             })
             .catch((err: Error) => {
-                setError(err.message) // guardamos el mensaje de error
+                setError(err.message)
                 setLoading(false)
             })
     }, [])
 
-    // ── Derivamos las secciones de los datos reales ───────────────────────────
-    // Antes esto lo hacía gameSelectors.ts con mockGames.
-    // Ahora lo hacemos aquí con los datos del backend.
-    // (Solo se calculan cuando games cambia, no en cada render)
     const heroGames     = games.filter(g => HERO_APPIDS.includes(g.steam_appid))
     const saleGames     = games.filter(g => (g.price_overview?.discount_percent ?? 0) > 0)
     const recentGames   = [...games].reverse().slice(0, 4)
     const topRatedGames = [...games].sort((a, b) => b.total_positive - a.total_positive).slice(0, 4)
 
-    // ── Estados de carga y error ──────────────────────────────────────────────
     if (loading) {
         return (
             <main
@@ -91,8 +69,6 @@ export default function StorePage() {
         )
     }
 
-    // ── Render principal ──────────────────────────────────────────────────────
-    // Igual que antes, pero ahora "games" viene del backend en vez de los mocks.
     return (
         <main className="min-h-screen overflow-x-hidden" style={{ background: 'var(--color-bg)', paddingTop: 'var(--nav-height)' }}>
 

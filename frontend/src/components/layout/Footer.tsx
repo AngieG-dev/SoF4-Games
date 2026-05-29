@@ -1,4 +1,3 @@
-// components/layout/Footer.tsx
 import { Link } from 'react-router-dom'
 import { Gamepad2 } from 'lucide-react'
 

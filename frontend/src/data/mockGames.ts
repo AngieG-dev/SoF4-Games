@@ -1,5 +1,3 @@
-// data/mockGames.ts
-// Datos reales de Steam para desarrollo. Reemplazar por /api/v1/games cuando el backend esté listo.
 import type { Game } from '../types'
 
 export const HERO_APPIDS = [1145360, 2379780, 367520, 646570]

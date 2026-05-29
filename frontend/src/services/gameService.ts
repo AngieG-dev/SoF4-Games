@@ -1,10 +1,5 @@
-// frontend/src/services/gameService.ts
-//
-// Único punto de contacto entre el frontend y la API de juegos del backend.
-
 import type { Game } from '../types'
 
-// URL base del backend. En desarrollo corre en localhost:8080.
 const BASE_URL = 'http://localhost:8080/api/v1'
 
 export const gameService = {
@@ -31,8 +26,6 @@ export const gameService = {
 
         const data = await response.json()
 
-        // Spring Page devuelve { content: [...], totalPages, totalElements, ... }
-        // Solo necesitamos el array de juegos.
         return data.content as Game[]
     },
 }

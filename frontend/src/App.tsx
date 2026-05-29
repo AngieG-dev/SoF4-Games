@@ -3,7 +3,7 @@ import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import StorePage from './pages/StorePage'
 import GamePage from './pages/GamePage'
-import PrivateRoute from './components/PrivateRoute' // NUEVO
+import PrivateRoute from './components/PrivateRoute'
 
 function App() {
   return (
@@ -14,10 +14,10 @@ function App() {
           {/* Rutas públicas */}
           <Route path="/"         element={<StorePage />} />
           <Route path="/game/:id" element={<GamePage />} />
-          <Route path="/login"    element={<div>Login - por hacer</div>} /> {/* NUEVO */}
+          <Route path="/login"    element={<div>Login - por hacer</div>} />
 
           {/* Rutas protegidas: requieren sesión iniciada */}
-          <Route element={<PrivateRoute />}> {/* NUEVO */}
+          <Route element={<PrivateRoute />}>
             <Route path="/library"  element={<div>Biblioteca - por hacer</div>} />
             <Route path="/profile"  element={<div>Perfil - por hacer</div>} />
             <Route path="/checkout" element={<div>Checkout - por hacer</div>} />

@@ -1,4 +1,3 @@
-// components/game/tabs/TabDescripcion.tsx
 import type { Game } from '../../../types'
 
 export default function TabDescripcion({ game }: { game: Game }) {

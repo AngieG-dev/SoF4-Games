@@ -1,6 +1,3 @@
-// data/gameSelectors.ts
-// Agrupaciones del catálogo para las secciones de la tienda.
-// Cuando el backend esté listo, reemplazar mockGames por llamadas a gameService.
 import { mockGames, HERO_APPIDS } from './mockGames'
 
 export const heroGames     = mockGames.filter(g => HERO_APPIDS.includes(g.steam_appid))

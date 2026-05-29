@@ -1,4 +1,3 @@
-// components/store/GameSection.tsx
 import { useNavigate } from 'react-router-dom'
 import type { Game } from '../../types'
 import GameCard from './GameCard'
