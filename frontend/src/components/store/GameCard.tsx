@@ -78,7 +78,7 @@ export default function GameCard({
             className="text-xs line-clamp-1"
             style={{ color: 'var(--color-text-muted)', fontFamily: 'var(--font-body)' }}
           >
-            {game.genres.map(g => g.description).join(' · ')}
+            {game.genres?.map(g => g.description).join(' · ')}
           </p>
         )}
 

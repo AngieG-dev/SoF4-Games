@@ -99,7 +99,7 @@ export default function HeroCarousel({ games }: { games: Game[] }) {
         >
           {/* Tags de género */}
           <div className="flex gap-2 mb-6" style={{ marginBottom: '1rem' }}>
-            {game.genres.slice(0, 2).map(g => (
+            {game.genres?.slice(0, 2).map(g => (
               <span
                 key={g.id}
                 className="px-2.5 py-1 rounded text-xs font-semibold"
