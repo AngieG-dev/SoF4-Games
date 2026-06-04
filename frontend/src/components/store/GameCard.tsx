@@ -34,7 +34,7 @@ export default function GameCard({
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={() => navigate(`/game/${game.steam_appid}`)}
+      onClick={() => navigate(`/game/${game.id}`)}
     >
       {/* Imagen con zoom sutil en hover */}
       <div className="overflow-hidden flex-shrink-0" style={{ height: compact ? '120px' : '160px' }}>

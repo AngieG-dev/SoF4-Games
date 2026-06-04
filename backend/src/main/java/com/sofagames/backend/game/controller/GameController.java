@@ -1,5 +1,6 @@
 package com.sofagames.backend.game.controller;
 
+import com.sofagames.backend.game.dto.GameDetailDTO;
 import com.sofagames.backend.game.dto.GameSummaryDTO;
 import com.sofagames.backend.game.service.GameService;
 import org.springframework.data.domain.Page;
@@ -21,24 +22,28 @@ public class GameController {
 
     /**
      * GET /api/v1/games
-     * GET /api/v1/games?page=0&size=20
-     * GET /api/v1/games?page=1&size=10
-     *
-     * @PageableDefault define los valores por defecto si el frontend no manda nada:
-     *   - page  = 0  (primera página)
-     *   - size  = 20 (20 juegos por página)
-     *
-     * Spring convierte automáticamente los query params ?page=&size= en el objeto Pageable.
-     * No tienes que leer los params a mano.
-     *
-     * ResponseEntity<Page<GameSummaryDTO>> = respuesta HTTP con código de estado + cuerpo JSON.
+     * Devuelve la lista paginada de juegos (endpoint existente, sin cambios).
      */
     @GetMapping
     public ResponseEntity<Page<GameSummaryDTO>> getAllGames(
             @PageableDefault(page = 0, size = 20) Pageable pageable) {
 
         Page<GameSummaryDTO> games = gameService.getAllGames(pageable);
-
         return ResponseEntity.ok(games);
+    }
+
+    /**
+     * GET /api/v1/games/{id}
+     * Devuelve el detalle completo de un juego por su ID interno.
+     * Endpoint público — no requiere JWT.
+     *
+     * Ejemplo: GET /api/v1/games/42
+     * Respuesta: 200 OK con GameDetailDTO, o 404 si no existe.
+     *
+     * @param id  ID interno del juego (Long)
+     */
+    @GetMapping("/{id}")
+    public ResponseEntity<GameDetailDTO> getGameById(@PathVariable Long id) {
+        return ResponseEntity.ok(gameService.getGameById(id));
     }
 }

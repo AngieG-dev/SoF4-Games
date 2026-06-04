@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class GameSummaryDTO {
 
+    private Long id;
+
     @JsonProperty("steam_appid")
     private Integer steamAppId;
 

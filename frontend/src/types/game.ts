@@ -55,6 +55,7 @@ export interface Achievements {
 }
 
 export interface Game {
+  id:                   number
   steam_appid:          number
   collection:           Collection
   name:                 string
@@ -107,4 +108,50 @@ export interface HeroGame {
   is_free:           boolean
   price_overview:    PriceOverview | null
   review_score_desc: string
+}
+
+export interface GameScreenshot {
+  id:           number
+  pathThumbnail: string
+  pathFull:      string
+  displayOrder:  number
+}
+
+export interface GameGenre {
+  id:   number
+  name: string
+}
+
+export interface GameCategory {
+  id:   number
+  name: string
+}
+
+/**
+ * Detalle completo de un juego — respuesta del endpoint GET /api/v1/games/{id}.
+ * Los campos usan camelCase porque así los serializa Spring Boot por defecto.
+ */
+export interface GameDetail {
+  id:                   number
+  steamAppId:           number
+  name:                 string
+  shortDescription:     string
+  headerImage:          string
+  backgroundRaw:        string
+  isFree:               boolean
+  priceFinal:           number
+  priceInitial:         number
+  discountPercent:      number
+  currency:             string | null
+  releaseDate:          string | null
+  requiredAge:          number
+  controllerSupport:    string | null
+  supportedLanguages:   string | null
+  recommendationsTotal: number
+  achievementsTotal:    number
+  genres:               GameGenre[]
+  categories:           GameCategory[]
+  developers:           string[]
+  publishers:           string[]
+  screenshots:          GameScreenshot[]
 }
