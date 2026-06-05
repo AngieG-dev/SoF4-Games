@@ -80,7 +80,7 @@ export default function LoginForm() {
                 style={{
                     background: 'linear-gradient(90deg, #ff00d0, #00f2ff)',
                     borderRadius: '12px',
-                    color: '#05010d',
+                    color: '#fff',
                     opacity: loading ? 0.7 : 1,
                     cursor: loading ? 'not-allowed' : 'pointer',
                     padding: '0.5rem',

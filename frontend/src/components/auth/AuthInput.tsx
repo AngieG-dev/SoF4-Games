@@ -38,7 +38,7 @@ export default function AuthInput({
                     border: '1px solid var(--color-border)',
                     borderRadius: '12px',
                     color: 'var(--color-text)',
-                    padding: '0.2rem 0.7rem',
+                    padding: '0.3rem 0.7rem',
                 }}
             />
         </div>

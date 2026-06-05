@@ -43,7 +43,7 @@ export default function GameSection({ title, games, linkTo, compact = false, sho
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {games.slice(0, 4).map(game => (
-          <GameCard key={game.steam_appid} game={game} compact={compact} showCartButton={showCartButton} />
+          <GameCard key={game.id} game={game} compact={compact} showCartButton={showCartButton} />
         ))}
       </div>
     </section>

@@ -13,7 +13,7 @@ export default function AuthError({ message }: AuthErrorProps) {
                 borderRadius: '12px',
                 color: '#ff8aa8',
                 marginBottom: '0.5rem',
-                padding: '0.3rem',
+                padding: '0.3rem 0.7rem',
             }}
         >
             {message}

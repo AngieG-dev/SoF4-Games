@@ -11,6 +11,7 @@ export default function HeroCarousel({ games }: { games: Game[] }) {
   const timerRef    = useRef<ReturnType<typeof setTimeout> | null>(null)
   const touchStartX = useRef<number | null>(null)
   const isMobile    = window.innerWidth < 1024
+  const [hovered, setHovered] = useState(false)
 
   const goTo = useCallback((index: number) => {
     if (animating) return
@@ -75,7 +76,7 @@ export default function HeroCarousel({ games }: { games: Game[] }) {
         {/* Botón prev */}
         <button
           onClick={() => { if (timerRef.current) clearTimeout(timerRef.current); goTo(current - 1) }}
-          className="hidden lg:flex flex-shrink-0 ml-8 w-15 items-center justify-center transition-all duration-200"
+          className="hidden lg:flex flex-shrink-0 ml-8 w-20 items-center justify-center transition-all duration-200"
           style={{ color: 'rgba(255,255,255,0.6)' }}
           onMouseEnter={e => {
             const el = e.currentTarget as HTMLElement
@@ -115,32 +116,43 @@ export default function HeroCarousel({ games }: { games: Game[] }) {
             ))}
           </div>
 
-          {/* Título */}
-          <h1
-            className="font-black mb-4 leading-tight"
+          <div
+            onClick={() => navigate(`/game/${game.id}`)}
             style={{
-              fontFamily:   'var(--font-title)',
-              fontSize:     'clamp(2rem, 4vw, 3.5rem)',
-              textShadow:   '0 2px 24px rgba(0,0,0,0.9)',
-              color:        '#fff',
-              marginBottom: '0.5rem',
+              cursor: 'pointer',
+              transform: hovered ? 'translateY(-6px) scale(1.01)' : 'translateY(0) scale(1)',
+              transition:   'all 0.25s ease',
             }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
           >
-            {game.name}
-          </h1>
+            {/* Título */}
+            <h1
+              className="font-black mb-4 leading-tight"
+              style={{
+                fontFamily:   'var(--font-title)',
+                fontSize:     'clamp(2rem, 4vw, 3.5rem)',
+                textShadow:   '0 2px 24px rgba(0,0,0,0.9)',
+                color:        '#fff',
+                marginBottom: '0.5rem',
+              }}
+            >
+              {game.name}
+            </h1>
 
-          {/* Descripción */}
-          <p
-            className="text-sm mb-6 line-clamp-2"
-            style={{
-              color:        'rgba(255,255,255,0.75)',
-              fontFamily:   'var(--font-body)',
-              lineHeight:   '1.6',
-              marginBottom: '1.5rem',
-            }}
-          >
-            {game.short_description}
-          </p>
+            {/* Descripción */}
+            <p
+              className="text-sm mb-6 line-clamp-2"
+              style={{
+                color:        'rgba(255,255,255,0.75)',
+                fontFamily:   'var(--font-body)',
+                lineHeight:   '1.6',
+                marginBottom: '1.5rem',
+              }}
+            >
+              {game.short_description}
+            </p>
+          </div>
 
           {/* Precio */}
           <div className="flex items-center gap-3 mb-7" style={{ marginBottom: '1.75rem' }}>
@@ -172,7 +184,7 @@ export default function HeroCarousel({ games }: { games: Game[] }) {
           {/* Botón CTA */}
           <div>
             <button
-              onClick={() => navigate(`/game/${game.steam_appid}`)}
+              onClick={() => navigate(`/game/${game.id}`)}
               className="flex items-center gap-2 font-bold transition-all duration-200"
               style={{
                 fontFamily:    'var(--font-cta)',
@@ -187,7 +199,7 @@ export default function HeroCarousel({ games }: { games: Game[] }) {
               onMouseEnter={e => {
                 const el = e.currentTarget as HTMLElement
                 el.style.background = 'var(--color-accent-alt)'
-                el.style.boxShadow  = '0 0 32px rgba(0,242,255,0.6), 0 4px 16px rgba(0,0,0,0.4)'
+                el.style.boxShadow  = '0 0 32px rgba(133, 11, 110, 0.5), 0 4px 16px rgba(0,0,0,0.4)'
                 el.style.transform  = 'translateY(-2px)'
               }}
               onMouseLeave={e => {
@@ -204,12 +216,16 @@ export default function HeroCarousel({ games }: { games: Game[] }) {
         </div>
 
         {/* Spacer */}
-        <div className="hidden lg:block flex-1" />
+        <div
+          onClick={() => navigate(`/game/${game.id}`)} 
+          className="hidden lg:block flex-1"
+          style={{ cursor: 'pointer', }}
+        />
 
         {/* Botón next */}
         <button
           onClick={() => { if (timerRef.current) clearTimeout(timerRef.current); goTo(current + 1) }}
-          className="hidden lg:flex flex-shrink-0 mr-8 w-15 items-center justify-center transition-all duration-200"
+          className="hidden lg:flex flex-shrink-0 mr-8 w-20 items-center justify-center transition-all duration-200"
           style={{ color: 'rgba(255,255,255,0.6)' }}
           onMouseEnter={e => {
             const el = e.currentTarget as HTMLElement
