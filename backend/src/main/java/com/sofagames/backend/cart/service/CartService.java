@@ -4,6 +4,7 @@ import com.sofagames.backend.cart.dto.CartItemDTO;
 import com.sofagames.backend.cart.entity.CartItem;
 import com.sofagames.backend.cart.repository.CartItemRepository;
 import com.sofagames.backend.shared.exception.ResourceNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,13 +12,10 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class CartService {
 
     private final CartItemRepository cartItemRepository;
-
-    public CartService(CartItemRepository cartItemRepository) {
-        this.cartItemRepository = cartItemRepository;
-    }
 
     public List<CartItemDTO> getCartItems(UUID userId) {
         return cartItemRepository.findByUserId(userId)

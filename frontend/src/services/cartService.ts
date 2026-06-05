@@ -34,3 +34,26 @@ export const removeFromCart = async (gameId: number): Promise<void> => {
 
     if (!response.ok) throw new Error('Error al eliminar del carrito')
 }
+export interface CheckoutResponse {
+    orderId: string
+    games: {
+        gameId: number
+        name: string
+        headerImage: string
+        pricePaid: number
+    }[]
+    total: number
+    currency: string
+    purchasedAt: string
+}
+
+export const checkout = async (): Promise<CheckoutResponse> => {
+    const response = await fetch(`${BASE_URL}/checkout`, {
+        method: 'POST',
+        headers: getAuthHeader(),
+    })
+
+    if (!response.ok) throw new Error('Error al procesar el pago')
+
+    return response.json()
+}
