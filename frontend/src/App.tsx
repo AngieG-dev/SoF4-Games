@@ -6,6 +6,7 @@ import GamePage from './pages/GamePage'
 import LoginPage from './pages/LoginPage'
 import PrivateRoute from './components/PrivateRoute'
 import CartPage from './pages/CartPage'
+import CheckoutPage from './pages/CheckoutPage'
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
             <Route path="/cart"     element={<CartPage />} />
             <Route path="/library"  element={<div>Biblioteca - por hacer</div>} />
             <Route path="/profile"  element={<div>Perfil - por hacer</div>} />
-            <Route path="/checkout" element={<div>Checkout - por hacer</div>} />
+            <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/friends"  element={<div>Amigos - por hacer</div>} />
           </Route>
         </Routes>
