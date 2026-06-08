@@ -69,15 +69,18 @@ export default function GamePage() {
         steam_appid:          game.steamAppId,
         collection:           'top_steam',
         name:                 game.name,
-        short_description:    game.shortDescription,
-        detailed_description: game.shortDescription,
+        short_description:    game.detailedDescription,
+        detailed_description: game.detailedDescription,
         header_image:         game.headerImage,
         capsule_image:        game.headerImage,
         background_raw:       game.backgroundRaw,
         is_free:              game.isFree,
+        discount_percent:     game.discountPercent,
+        price_initial:        game.priceInitial,
+        price_final:          game.priceFinal,
         required_age:         game.requiredAge,
         controller_support:   game.controllerSupport,
-        supported_languages:  game.supportedLanguages ?? '',
+        supported_languages:  stripHtml(game.supportedLanguages ?? ''),
         website:              null,
         metacritic:           null,
         steam_tags:           [],
@@ -121,11 +124,8 @@ export default function GamePage() {
         recommendations: { total: game.recommendationsTotal },
         achievements:    game.achievementsTotal > 0 ? { total: game.achievementsTotal } : null,
         platforms:       { windows: true, mac: false, linux: false },
-        systemRequirements: game.systemRequirements ?? null,
+        system_requirements: game.systemRequirements ?? null,
     }
-
-    // Sistemas
-    const requirements = game.systemRequirements ? JSON.parse(game.systemRequirements) : null;
 
     return (
         <main
@@ -199,6 +199,11 @@ export default function GamePage() {
             </div>
         </main>
     )
+}
+
+// ── Helper: elimina etiquetas HTML de un string ──
+function stripHtml(html: string): string {
+    return html.replace(/<[^>]*>/g, '')
 }
 
 // ── Helper: formatea centavos a string legible ──

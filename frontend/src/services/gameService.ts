@@ -16,7 +16,7 @@ export const gameService = {
      * { "content": [...], "totalPages": 5, "totalElements": 98, ... }
      * Solo extraemos "content" que es el array de juegos.
      */
-    getAll: async (page = 0, size = 20): Promise<Game[]> => {
+    getAll: async (page = 0, size = 200): Promise<Game[]> => {
         const url = `${BASE_URL}/games?page=${page}&size=${size}`
 
         const response = await fetch(url)

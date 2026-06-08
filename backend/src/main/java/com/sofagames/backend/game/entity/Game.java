@@ -23,6 +23,9 @@ public class Game {
     @Column(name = "steam_appid", nullable = false, unique = true)
     private Integer steamAppId;
 
+    @Column(name = "collection")
+    private String collection;
+
     @Column(nullable = false)
     private String name;
 
@@ -125,6 +128,38 @@ public class Game {
 
     @Column(name = "system_requirements", columnDefinition = "TEXT")
     private String systemRequirements;
+
+    // ── Plataformas ──
+    @Column(name = "platform_windows", nullable = false)
+    @Builder.Default
+    private Boolean platformWindows = false;
+
+    @Column(name = "platform_mac", nullable = false)
+    @Builder.Default
+    private Boolean platformMac = false;
+
+    @Column(name = "platform_linux", nullable = false)
+    @Builder.Default
+    private Boolean platformLinux = false;
+
+    // ── Reseñas ──
+    @Column(name = "review_score_desc")
+    private String reviewScoreDesc;
+
+    @Column(name = "total_positive", nullable = false)
+    @Builder.Default
+    private Integer totalPositive = 0;
+
+    @Column(name = "total_negative", nullable = false)
+    @Builder.Default
+    private Integer totalNegative = 0;
+
+    // ── Metacritic ──
+    @Column(name = "metacritic_score")
+    private Integer metacriticScore;
+
+    @Column(name = "metacritic_url", columnDefinition = "TEXT")
+    private String metacriticUrl;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)

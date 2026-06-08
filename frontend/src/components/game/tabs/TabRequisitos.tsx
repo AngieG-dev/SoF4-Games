@@ -1,23 +1,21 @@
-import type { GameDetail } from '../../../types/game'
+import type { Game } from '../../../types'
 
 function ReqBlock({ title, text }: { title: string; text: string }) {
-  // Intentamos dividir por ' / ' o ' | ' o simple texto si no hay separadores claros
-  const lines = text.split(/ \/ | \| /).filter(Boolean);
   return (
     <div className="flex-1">
-      <h4 
-        className="font-semibold mb-3" 
-        style={{ 
-          fontFamily: 'var(--font-title)', 
-          color: 'var(--color-text)', 
-          fontSize: '1rem', 
+      <h4
+        className="font-semibold mb-3"
+        style={{
+          fontFamily: 'var(--font-title)',
+          color: 'var(--color-text)',
+          fontSize: '1rem',
           paddingBottom: '1rem',
         }}
       >
         {title}
       </h4>
       <div className="flex flex-col gap-2">
-        {lines.length > 0 ? lines.map((item, i) => (
+        {text.split(' | ').filter(Boolean).map((item, i) => (
           <div
             key={i}
             className="flex items-start gap-2"
@@ -32,17 +30,16 @@ function ReqBlock({ title, text }: { title: string; text: string }) {
           >
             {item}
           </div>
-        )) : <p className="text-sm text-gray-500">{text}</p>}
+        ))}
       </div>
     </div>
   )
 }
 
-export default function TabRequisitos({ game }: { game: GameDetail }) {
-  const requirements = game.systemRequirements ? JSON.parse(game.systemRequirements) : null;
-  
+export default function TabRequisitos({ game }: { game: Game }) {
+    const plats = Object.entries(game.system_requirements)
   if (!plats.length) {
-    return <p className="py-5" style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>No hay requisitos disponibles.</p>
+      return <p className="py-5" style={{ color: 'var(--color-text-muted)', fontSize: '1rem', marginTop: '1rem', }}>No hay requisitos disponibles.</p>
   }
 
   return (

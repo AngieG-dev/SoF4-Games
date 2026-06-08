@@ -4,7 +4,7 @@ import { gameService } from '../services/gameService'
 import HeroCarousel from '../components/store/HeroCarousel'
 import GameSection  from '../components/store/GameSection'
 
-const HERO_IDS = [68, 3, 19, 31]
+const HERO_IDS = [153, 20, 190, 27]
 
 export default function StorePage() {
 
@@ -26,7 +26,7 @@ export default function StorePage() {
     }, [])
 
     const heroGames     = games.filter(g => HERO_IDS.includes(g.id))
-    const saleGames     = games.filter(g => (g.price_overview?.discount_percent ?? 0) > 0)
+    const saleGames = games.filter(g => (g.discount_percent ?? g.price_overview?.discount_percent ?? 0) > 0)
     const recentGames   = [...games].reverse().slice(0, 4)
     const topRatedGames = [...games].sort((a, b) => b.total_positive - a.total_positive).slice(0, 4)
 
