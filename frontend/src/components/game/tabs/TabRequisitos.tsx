@@ -1,6 +1,8 @@
-import type { Game } from '../../../types'
+import type { GameDetail } from '../../../types/game'
 
 function ReqBlock({ title, text }: { title: string; text: string }) {
+  // Intentamos dividir por ' / ' o ' | ' o simple texto si no hay separadores claros
+  const lines = text.split(/ \/ | \| /).filter(Boolean);
   return (
     <div className="flex-1">
       <h4 
@@ -15,7 +17,7 @@ function ReqBlock({ title, text }: { title: string; text: string }) {
         {title}
       </h4>
       <div className="flex flex-col gap-2">
-        {text.split(' | ').filter(Boolean).map((item, i) => (
+        {lines.length > 0 ? lines.map((item, i) => (
           <div
             key={i}
             className="flex items-start gap-2"
@@ -30,28 +32,26 @@ function ReqBlock({ title, text }: { title: string; text: string }) {
           >
             {item}
           </div>
-        ))}
+        )) : <p className="text-sm text-gray-500">{text}</p>}
       </div>
     </div>
   )
 }
 
-export default function TabRequisitos({ game }: { game: Game }) {
-  const plats = Object.entries(game.system_requirements)
-
+export default function TabRequisitos({ game }: { game: GameDetail }) {
+  const requirements = game.systemRequirements ? JSON.parse(game.systemRequirements) : null;
+  
   if (!plats.length) {
-    return <p className="py-5" style={{ color: 'var(--color-text-muted)', fontSize: '1rem', marginTop: '1rem', }}>No hay requisitos disponibles.</p>
+    return <p className="py-5" style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>No hay requisitos disponibles.</p>
   }
 
   return (
-    <div className="pb-5" style={{ marginTop: '1.5rem' }}>
+    <div className="pb-5" style={{ paddingTop: '1.5rem' }}>
       {plats.map(([plat, reqs]) => (
         <div key={plat} className="mb-6">
-          {plats.length > 1 && (
-            <p className="uppercase tracking-widest mb-3" style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-title)', fontSize: '0.75rem' }}>
-              {plat === 'pc' ? 'Windows' : plat === 'mac' ? 'macOS' : 'Linux'}
-            </p>
-          )}
+          <p className="uppercase tracking-widest mb-3" style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-title)', fontSize: '0.75rem' }}>
+            {plat === 'pc' ? 'Windows' : plat === 'mac' ? 'macOS' : plat === 'linux' ? 'Linux' : plat}
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {reqs.minimum     && <ReqBlock title="Mínimos"      text={reqs.minimum} />}
             {reqs.recommended && <ReqBlock title="Recomendados" text={reqs.recommended} />}

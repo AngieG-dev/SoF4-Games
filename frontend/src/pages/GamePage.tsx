@@ -121,8 +121,11 @@ export default function GamePage() {
         recommendations: { total: game.recommendationsTotal },
         achievements:    game.achievementsTotal > 0 ? { total: game.achievementsTotal } : null,
         platforms:       { windows: true, mac: false, linux: false },
-        system_requirements: {},
+        systemRequirements: game.systemRequirements ?? null,
     }
+
+    // Sistemas
+    const requirements = game.systemRequirements ? JSON.parse(game.systemRequirements) : null;
 
     return (
         <main

@@ -31,4 +31,10 @@ public class UserProfile {
 
     @Column(name = "avatar_url")
     private String avatarUrl;
+
+    private String location;
+
+    @org.hibernate.annotations.UpdateTimestamp
+    @Column(name = "updated_at")
+    private java.time.ZonedDateTime updatedAt;
 }

@@ -14,6 +14,7 @@ public record GameDetailDTO(
         Integer steamAppId,
         String  name,
         String  shortDescription,
+        String  detailedDescription,
         String  headerImage,
         String  backgroundRaw,
 
@@ -31,6 +32,7 @@ public record GameDetailDTO(
         String    supportedLanguages,
         Integer   recommendationsTotal,
         Integer   achievementsTotal,
+        String    systemRequirements,
 
         // Relaciones — listas de sub-objetos
         List<GenreDTO>      genres,

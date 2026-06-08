@@ -26,8 +26,13 @@ public class Game {
     @Column(nullable = false)
     private String name;
 
+    private String collection;
+
     @Column(name = "short_description", columnDefinition = "TEXT")
     private String shortDescription;
+
+    @Column(name = "detailed_description", columnDefinition = "TEXT")
+    private String detailedDescription;
 
     @Column(name = "header_image", columnDefinition = "TEXT")
     private String headerImage;
@@ -58,6 +63,12 @@ public class Game {
 
     private String currency;
 
+    @Column(name = "price_initial_formatted")
+    private String priceInitialFormatted;
+
+    @Column(name = "price_final_formatted")
+    private String priceFinalFormatted;
+
     @Column(name = "release_date")
     private LocalDate releaseDate;
 
@@ -75,9 +86,38 @@ public class Game {
     @Column(name = "supported_languages", columnDefinition = "TEXT")
     private String supportedLanguages;
 
+    @Column(name = "platform_windows", nullable = false)
+    @Builder.Default
+    private Boolean platformWindows = true;
+
+    @Column(name = "platform_mac", nullable = false)
+    @Builder.Default
+    private Boolean platformMac = false;
+
+    @Column(name = "platform_linux", nullable = false)
+    @Builder.Default
+    private Boolean platformLinux = false;
+
+    @Column(name = "review_score_desc")
+    private String reviewScoreDesc;
+
+    @Column(name = "total_positive", nullable = false)
+    @Builder.Default
+    private Integer totalPositive = 0;
+
+    @Column(name = "total_negative", nullable = false)
+    @Builder.Default
+    private Integer totalNegative = 0;
+
     @Column(name = "recommendations_total", nullable = false)
     @Builder.Default
     private Integer recommendationsTotal = 0;
+
+    @Column(name = "metacritic_score")
+    private Integer metacriticScore;
+
+    @Column(name = "metacritic_url")
+    private String metacriticUrl;
 
     @Column(name = "achievements_total", nullable = false)
     @Builder.Default
@@ -90,6 +130,10 @@ public class Game {
     @Column(name = "created_at", nullable = false, updatable = false)
     private ZonedDateTime createdAt;
 
+    @org.hibernate.annotations.UpdateTimestamp
+    @Column(name = "updated_at")
+    private ZonedDateTime updatedAt;
+
     // ==================== RELACIONES ====================
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -98,6 +142,13 @@ public class Game {
             inverseJoinColumns = @JoinColumn(name = "genre_id"))
     @Builder.Default
     private Set<Genre> genres = new HashSet<>();
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "game_tags",
+            joinColumns = @JoinColumn(name = "game_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    @Builder.Default
+    private Set<Tag> tags = new HashSet<>();
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "game_categories",

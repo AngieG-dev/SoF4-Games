@@ -135,7 +135,7 @@ export interface GameDetail {
   id:                   number
   steamAppId:           number
   name:                 string
-  shortDescription:     string
+  detailedDescription:    string
   headerImage:          string
   backgroundRaw:        string
   isFree:               boolean
@@ -149,9 +149,11 @@ export interface GameDetail {
   supportedLanguages:   string | null
   recommendationsTotal: number
   achievementsTotal:    number
+  systemRequirements:   string | null
   genres:               GameGenre[]
   categories:           GameCategory[]
   developers:           string[]
   publishers:           string[]
   screenshots:          GameScreenshot[]
-}
+  }
+
