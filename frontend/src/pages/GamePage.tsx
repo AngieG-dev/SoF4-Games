@@ -85,20 +85,17 @@ export default function GamePage() {
         total_positive:       0,
         total_negative:       0,
 
-        // Screenshots: adaptamos pathThumbnail → path_thumbnail
         screenshots: game.screenshots.map(s => ({
             id:             s.id,
             path_thumbnail: s.pathThumbnail,
             path_full:      s.pathFull,
         })),
 
-        // Géneros: adaptamos { id, name } → { id, description }
         genres: game.genres.map(g => ({
             id:          String(g.id),
             description: g.name,
         })),
 
-        // Categorías: adaptamos { id, name } → { id, description }
         categories: game.categories.map(c => ({
             id:          c.id,
             description: c.name,
@@ -107,7 +104,6 @@ export default function GamePage() {
         developers: game.developers,
         publishers: game.publishers,
 
-        // Precio
         price_overview: game.isFree ? null : {
             currency:          game.currency ?? 'CLP',
             initial:           game.priceInitial,
@@ -191,7 +187,7 @@ export default function GamePage() {
                 </div>
 
                 {/* Tabs de contenido */}
-                <div className="mb-8" style={{ margin: '1rem 0' }}>
+                <div className="mb-8" style={{ margin: '2rem 0' }}>
                     <TabBar active={tab} onChange={setTab} />
                     {tab === 'descripcion' && <TabDescripcion game={gameForComponents} />}
                     {tab === 'requisitos'  && <TabRequisitos  game={gameForComponents} />}

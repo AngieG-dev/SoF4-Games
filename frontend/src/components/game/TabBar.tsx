@@ -13,15 +13,16 @@ const TABS: { id: Tab; label: string }[] = [
 
 export default function TabBar({ active, onChange }: TabBarProps) {
   return (
-    <div className="flex gap-4 border-b" style={{ borderColor: 'var(--color-border)' }}>
+    <div className="flex gap-4 border-b" style={{ borderColor: 'var(--color-border)', }}>
       {TABS.map(t => (
         <button
           key={t.id}
           onClick={() => onChange(t.id)}
-          className="px-4 py-3 text-base font-medium transition-all duration-200 relative"
+          className="px-4 py-3 text-lg font-medium transition-all duration-200 relative"
           style={{
             fontFamily: 'var(--font-cta)',
             color:      active === t.id ? 'var(--color-text)' : 'var(--color-text-muted)',
+            marginRight: '0.5rem',
           }}
         >
           {t.label}

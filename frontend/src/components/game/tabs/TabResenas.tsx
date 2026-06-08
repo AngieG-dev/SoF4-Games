@@ -5,7 +5,7 @@ export default function TabResenas({ game }: { game: Game }) {
   const pct   = total > 0 ? Math.round((game.total_positive / total) * 100) : 0
 
   return (
-    <div className="pb-5" style={{ paddingTop: '1.5rem' }}>
+    <div className="pb-5" style={{ marginTop: '1.5rem' }}>
       {/* Resumen */}
       <div
         className="flex items-center gap-6 mb-6 p-4 rounded-xl"
@@ -27,7 +27,7 @@ export default function TabResenas({ game }: { game: Game }) {
           <p className="text-xl font-semibold mb-1" style={{ fontFamily: 'var(--font-title)', color: 'var(--color-text)' }}>
             {game.review_score_desc}
           </p>
-          <p className="text-sm" style={{ color: 'var(--color-text-muted)', fontFamily: 'var(--font-body)', }}>
+          <p className="text-base" style={{ color: 'var(--color-text-muted)', fontFamily: 'var(--font-body)', }}>
             Basado en {game.recommendations.total.toLocaleString('es-CL')} reseñas
           </p>
           {/* Barra de progreso */}
@@ -42,7 +42,7 @@ export default function TabResenas({ game }: { game: Game }) {
           </div>
         </div>
       </div>
-      <p className="text-sm text-center" style={{ color: 'var(--color-text-muted)', fontFamily: 'var(--font-body)' }}>
+      <p className="text-base text-center" style={{ color: 'var(--color-text-muted)', fontFamily: 'var(--font-body)', margin: '1rem', }}>
         Las reseñas individuales estarán disponibles cuando el backend esté conectado.
       </p>
     </div>

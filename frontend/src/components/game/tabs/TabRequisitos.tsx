@@ -40,11 +40,11 @@ export default function TabRequisitos({ game }: { game: Game }) {
   const plats = Object.entries(game.system_requirements)
 
   if (!plats.length) {
-    return <p className="py-5" style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>No hay requisitos disponibles.</p>
+    return <p className="py-5" style={{ color: 'var(--color-text-muted)', fontSize: '1rem', marginTop: '1rem', }}>No hay requisitos disponibles.</p>
   }
 
   return (
-    <div className="pb-5" style={{ paddingTop: '1.5rem' }}>
+    <div className="pb-5" style={{ marginTop: '1.5rem' }}>
       {plats.map(([plat, reqs]) => (
         <div key={plat} className="mb-6">
           {plats.length > 1 && (

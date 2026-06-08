@@ -12,7 +12,8 @@ export default function PurchasePanel({ game }: { game: Game }) {
         background: 'var(--color-bg-card)',
         border:     '1px solid var(--color-border)',
         minWidth:   '260px',
-        padding:    '1.5rem'
+        padding:    '1.5rem',
+        height:     'stretch',
       }}
     >
       {/* Nombre y estudio */}

@@ -19,7 +19,7 @@ export default function Gallery({ game }: { game: Game }) {
   return (
     <div>
       {/* Imagen principal */}
-      <div className="rounded-xl overflow-hidden mb-3" style={{ height: '33.5rem' }}>
+      <div className="rounded-xl overflow-hidden mb-3" style={{ height: '34rem' }}>
         <img
           src={screenshots[active]?.path_full || screenshots[active]?.path_thumbnail}
           alt={`${game.name} screenshot ${active + 1}`}
@@ -30,15 +30,21 @@ export default function Gallery({ game }: { game: Game }) {
 
       {/* Thumbnails */}
       {screenshots.length > 1 && (
-        <div className="flex gap-2 overflow-x-auto pb-1">
+        <div 
+          className="flex gap-2 overflow-x-auto pb-1"
+          style={{
+            marginTop: '1rem',
+            paddingBottom: '0.3rem',
+          }}  
+        >
           {screenshots.map((ss, i) => (
             <button
               key={ss.id}
               onClick={() => setActive(i)}
               className="flex-shrink-0 rounded-lg overflow-hidden transition-all duration-200"
               style={{
-                width:     '90px',
-                height:    '54px',
+                width:     '150px',
+                height:    '70px',
                 border:    `2px solid ${i === active ? 'var(--color-accent)' : 'var(--color-border)'}`,
                 boxShadow: i === active ? 'var(--glow-accent)' : 'none',
               }}
