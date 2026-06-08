@@ -4,7 +4,7 @@ import { gameService } from '../services/gameService'
 import HeroCarousel from '../components/store/HeroCarousel'
 import GameSection  from '../components/store/GameSection'
 
-const HERO_IDS = [90, 25, 47, 35]
+const HERO_IDS = [68, 3, 19, 31]
 
 export default function StorePage() {
 
