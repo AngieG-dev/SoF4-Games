@@ -1,8 +1,14 @@
-import { ShoppingCart, Heart, Gift } from 'lucide-react'
+import { ShoppingCart, Heart, Gift, Check, Loader2 } from 'lucide-react'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import type { Game } from '../../types'
 import { getPlatformLabel } from '../../utils/priceUtils'
+import { useCart } from '../../context/CartContext'
 
 export default function PurchasePanel({ game }: { game: Game }) {
+  const { addToCart } = useCart()
+  const navigate = useNavigate()
+  const [status, setStatus] = useState<'idle' | 'loading' | 'added' | 'error'>('idle')
   const po = game.price_overview
 
   return (
@@ -76,19 +82,38 @@ export default function PurchasePanel({ game }: { game: Game }) {
 
       {/* Botón añadir al carrito */}
       <button
+        disabled={status === 'loading' || status === 'added'}
+        onClick={async () => {
+          const token = localStorage.getItem('token')
+          if (!token) { navigate('/login'); return }
+          setStatus('loading')
+          try {
+            await addToCart(game.id)
+            setStatus('added')
+          } catch {
+            setStatus('error')
+            setTimeout(() => setStatus('idle'), 2000)
+          }
+        }}
         className="w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all duration-200"
         style={{
           fontFamily: 'var(--font-cta)',
-          background: 'linear-gradient(135deg, var(--color-accent), var(--color-accent-alt))',
+          background: status === 'added'
+            ? 'linear-gradient(135deg, #00c26e, #00a85a)'
+            : 'linear-gradient(135deg, var(--color-accent), var(--color-accent-alt))',
           color:      '#fff',
           boxShadow:  'var(--glow-accent)',
           padding:    '10px 28px',
+          opacity:    status === 'loading' ? 0.7 : 1,
+          cursor:     status === 'loading' || status === 'added' ? 'not-allowed' : 'pointer',
         }}
-        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1.02)' }}
+        onMouseEnter={e => { if (status === 'idle') (e.currentTarget as HTMLElement).style.transform = 'scale(1.02)' }}
         onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1)' }}
       >
-        <ShoppingCart size={16} />
-        Añadir al carrito
+        {status === 'loading' && <Loader2 size={16} className="animate-spin" />}
+        {status === 'added'   && <Check size={16} />}
+        {status === 'idle' || status === 'error' ? <ShoppingCart size={16} /> : null}
+        {status === 'loading' ? 'Agregando...' : status === 'added' ? '¡Agregado!' : status === 'error' ? 'Error, reintentar' : 'Añadir al carrito'}
       </button>
 
       {/* Botones secundarios */}

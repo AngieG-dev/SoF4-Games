@@ -26,6 +26,17 @@ export const getCartItems = async (): Promise<CartItem[]> => {
     return response.json()
 }
 
+export const addToCart = async (gameId: number): Promise<CartItem> => {
+    const response = await fetch(`${BASE_URL}/cart/${gameId}`, {
+        method: 'POST',
+        headers: getAuthHeader(),
+    })
+
+    if (!response.ok) throw new Error('Error al agregar al carrito')
+
+    return response.json()
+}
+
 export const removeFromCart = async (gameId: number): Promise<void> => {
     const response = await fetch(`${BASE_URL}/cart/${gameId}`, {
         method: 'DELETE',

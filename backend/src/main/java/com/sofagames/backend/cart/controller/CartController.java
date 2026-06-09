@@ -21,6 +21,15 @@ public class CartController {
     private final JwtUtil jwtUtil;
     private final UserRepository userRepository;
 
+    @PostMapping("/{gameId}")
+    public ResponseEntity<CartItemDTO> addToCart(
+            @RequestHeader("Authorization") String authHeader,
+            @PathVariable Long gameId) {
+
+        UUID userId = extractUserId(authHeader);
+        return ResponseEntity.ok(cartService.addToCart(userId, gameId));
+    }
+
     @GetMapping
     public ResponseEntity<List<CartItemDTO>> getCart(
             @RequestHeader("Authorization") String authHeader) {
