@@ -4,6 +4,7 @@ import Footer from './components/layout/Footer'
 import StorePage from './pages/StorePage'
 import GamePage from './pages/GamePage'
 import LoginPage from './pages/LoginPage'
+import LibraryPage from "./pages/LibraryPage.tsx"
 import PrivateRoute from './components/PrivateRoute'
 import CartPage from './pages/CartPage'
 import CheckoutPage from './pages/CheckoutPage'
@@ -23,7 +24,7 @@ function AppContent() {
         {/* Rutas protegidas: requieren sesión iniciada */}
         <Route element={<PrivateRoute />}>
           <Route path="/cart"     element={<CartPage />} />
-          <Route path="/library"  element={<div>Biblioteca - por hacer</div>} />
+          <Route path="/library"  element={<LibraryPage />} />
           <Route path="/profile"  element={<div>Perfil - por hacer</div>} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/friends"  element={<div>Amigos - por hacer</div>} />

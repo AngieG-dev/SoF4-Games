@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getCartItems, checkout } from '../services/cartService'
 import type { CartItem, CheckoutResponse } from '../services/cartService'
