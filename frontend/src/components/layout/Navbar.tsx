@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { ShoppingCart, Search, X, Gamepad2, User, Users, BookOpen, Store } from 'lucide-react'
 import FriendsSidebar from '../FriendsSidebar'
+import { getPendingRequests } from '../../services/friendsService'
 
 interface NavbarProps {
     cartCount?: number
@@ -12,6 +13,7 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
     const [searchQuery, setSearchQuery]   = useState('')
     const [mobileSearch, setMobileSearch] = useState('')
     const [sidebarOpen, setSidebarOpen]   = useState(false)
+    const [pendingCount, setPendingCount] = useState(0)
     const searchInputRef                  = useRef<HTMLInputElement>(null)
     const location                        = useLocation()
     const navigate                        = useNavigate()
@@ -40,6 +42,16 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
         }
         document.addEventListener('mousedown', handleClickOutside)
         return () => document.removeEventListener('mousedown', handleClickOutside)
+    }, [])
+
+    // Cargar badge de solicitudes pendientes cada 30 segundos
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (!token) return
+        const load = () => getPendingRequests().then((data: { length: number }) => setPendingCount(data.length)).catch(() => {})
+        load()
+        const interval = setInterval(load, 30000)
+        return () => clearInterval(interval)
     }, [])
 
     const isActive = (path: string) => location.pathname === path || location.pathname.startsWith(path + '/')
@@ -126,13 +138,31 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
                         {/* Amigos */}
                         <button
                             onClick={() => setSidebarOpen(true)}
-                            className="w-9 h-9 flex items-center justify-center rounded-full border transition-all duration-200"
+                            className="w-9 h-9 flex items-center justify-center rounded-full border transition-all duration-200 relative"
                             style={{ color: 'var(--color-text-muted)', borderColor: 'var(--color-border)', background: 'var(--color-bg-card)' }}
                             onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = '#cc00a6'; el.style.borderColor = '#cc00a6'; el.style.boxShadow = '0 0 12px #cc00a6' }}
                             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.color = 'var(--color-text-muted)'; el.style.borderColor = 'var(--color-border)'; el.style.boxShadow = 'none' }}
                             aria-label="Ver amigos"
                         >
                             <Users size={18} />
+                            {pendingCount > 0 && (
+                                <span style={{
+                                    position:   'absolute',
+                                    top:        '-4px',
+                                    right:      '-4px',
+                                    background: 'var(--color-accent)',
+                                    color:      '#fff',
+                                    fontSize:   '0.6rem',
+                                    fontWeight: 700,
+                                    borderRadius: '999px',
+                                    padding:    '1px 4px',
+                                    minWidth:   '14px',
+                                    textAlign:  'center',
+                                    lineHeight: '1.4',
+                                }}>
+                                    {pendingCount > 9 ? '9+' : pendingCount}
+                                </span>
+                            )}
                         </button>
 
                         {/* Carrito */}

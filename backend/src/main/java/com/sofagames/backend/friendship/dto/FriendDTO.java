@@ -3,10 +3,11 @@ package com.sofagames.backend.friendship.dto;
 import java.util.UUID;
 
 /**
- * Datos del amigo que se devuelven al frontend.
- * Se construye a partir del UserProfile del otro usuario en la amistad.
+ * DTO de respuesta para cada amigo en la lista.
+ * Incluye friendshipId para poder eliminar la amistad desde el frontend.
  */
 public record FriendDTO(
+        Long   friendshipId,
         UUID   userId,
         String displayName,
         String username,

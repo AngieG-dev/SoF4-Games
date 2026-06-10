@@ -3,6 +3,8 @@ package com.sofagames.backend.friendship.service;
 import com.sofagames.backend.auth.entity.User;
 import com.sofagames.backend.auth.repository.UserRepository;
 import com.sofagames.backend.friendship.dto.FriendDTO;
+import com.sofagames.backend.friendship.dto.PendingRequestDTO;
+import com.sofagames.backend.friendship.dto.SentRequestDTO;
 import com.sofagames.backend.friendship.model.Friendship;
 import com.sofagames.backend.friendship.repository.FriendshipRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,15 +20,10 @@ import java.util.UUID;
 public class FriendshipService {
 
     private final FriendshipRepository friendshipRepository;
-    private final UserRepository userRepository;
+    private final UserRepository       userRepository;
 
-    /**
-     * Envía una solicitud de amistad del usuario autenticado hacia addresseeId.
-     *
-     * @param requesterId UUID del usuario que envía (viene del JWT, no del body)
-     * @param addresseeId UUID del usuario que recibe (viene del body)
-     * @return la Friendship recién creada con status = "PENDING"
-     */
+    // ── Enviar solicitud ──
+
     public Friendship sendRequest(UUID requesterId, UUID addresseeId) {
 
         if (requesterId.equals(addresseeId)) {
@@ -60,14 +57,8 @@ public class FriendshipService {
         return friendshipRepository.save(friendship);
     }
 
-    /**
-     * Acepta una solicitud de amistad existente.
-     * Solo el addressee (quien recibió la solicitud) puede aceptarla.
-     *
-     * @param friendshipId ID de la fila en friendships
-     * @param userId       UUID del usuario autenticado (debe ser el addressee)
-     * @return la Friendship actualizada con status = "ACCEPTED"
-     */
+    // ── Aceptar solicitud ──
+
     public Friendship acceptRequest(Long friendshipId, UUID userId) {
 
         Friendship friendship = friendshipRepository.findById(friendshipId)
@@ -83,14 +74,70 @@ public class FriendshipService {
         return friendshipRepository.save(friendship);
     }
 
-    /**
-     * Devuelve la lista de amigos aceptados del usuario.
-     * Cada amistad puede tener al usuario como requester O como addressee,
-     * así que para cada fila identificamos quién es "el otro".
-     *
-     * @param userId UUID del usuario autenticado
-     * @return lista de FriendDTO con los datos del perfil de cada amigo
-     */
+    // ── Ignorar/rechazar solicitud recibida ──
+
+    public void ignoreRequest(Long friendshipId, UUID userId) {
+
+        Friendship friendship = friendshipRepository.findById(friendshipId)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Solicitud de amistad no encontrada"));
+
+        if (!friendship.getAddressee().getId().equals(userId)) {
+            throw new ResponseStatusException(
+                    HttpStatus.FORBIDDEN, "Solo el destinatario puede ignorar esta solicitud");
+        }
+
+        friendshipRepository.delete(friendship);
+    }
+
+    // ── Cancelar solicitud enviada ──
+
+    public void cancelRequest(Long friendshipId, UUID userId) {
+
+        Friendship friendship = friendshipRepository.findById(friendshipId)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Solicitud de amistad no encontrada"));
+
+        if (!friendship.getRequester().getId().equals(userId)) {
+            throw new ResponseStatusException(
+                    HttpStatus.FORBIDDEN, "Solo quien envió puede cancelar esta solicitud");
+        }
+
+        if (!"PENDING".equals(friendship.getStatus())) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, "Solo se pueden cancelar solicitudes pendientes");
+        }
+
+        friendshipRepository.delete(friendship);
+    }
+
+    // ── Eliminar amigo ──
+
+    public void removeFriend(Long friendshipId, UUID userId) {
+
+        Friendship friendship = friendshipRepository.findById(friendshipId)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Amistad no encontrada"));
+
+        boolean isParticipant =
+                friendship.getRequester().getId().equals(userId) ||
+                        friendship.getAddressee().getId().equals(userId);
+
+        if (!isParticipant) {
+            throw new ResponseStatusException(
+                    HttpStatus.FORBIDDEN, "No tienes permiso para eliminar esta amistad");
+        }
+
+        if (!"ACCEPTED".equals(friendship.getStatus())) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, "Solo se pueden eliminar amistades aceptadas");
+        }
+
+        friendshipRepository.delete(friendship);
+    }
+
+    // ── Lista de amigos aceptados ──
+
     public List<FriendDTO> getFriends(UUID userId) {
 
         return friendshipRepository
@@ -104,9 +151,54 @@ public class FriendshipService {
                     var profile = friend.getUserProfile();
 
                     return new FriendDTO(
+                            friendship.getId(),
                             friend.getId(),
                             profile != null ? profile.getDisplayName() : null,
                             profile != null ? profile.getUsername()    : null,
+                            profile != null ? profile.getAvatarUrl()   : null
+                    );
+                })
+                .toList();
+    }
+
+    // ── Solicitudes pendientes recibidas ──
+
+    public List<PendingRequestDTO> getPendingRequests(UUID userId) {
+
+        return friendshipRepository
+                .findPendingRequestsReceived(userId)
+                .stream()
+                .map(friendship -> {
+                    User requester = friendship.getRequester();
+                    var profile    = requester.getUserProfile();
+
+                    return new PendingRequestDTO(
+                            friendship.getId(),
+                            requester.getId(),
+                            profile != null ? profile.getUsername()    : null,
+                            profile != null ? profile.getDisplayName() : null,
+                            profile != null ? profile.getAvatarUrl()   : null
+                    );
+                })
+                .toList();
+    }
+
+    // ── Solicitudes pendientes enviadas ──
+
+    public List<SentRequestDTO> getSentRequests(UUID userId) {
+
+        return friendshipRepository
+                .findPendingRequestsSent(userId)
+                .stream()
+                .map(friendship -> {
+                    User addressee = friendship.getAddressee();
+                    var profile    = addressee.getUserProfile();
+
+                    return new SentRequestDTO(
+                            friendship.getId(),
+                            addressee.getId(),
+                            profile != null ? profile.getUsername()    : null,
+                            profile != null ? profile.getDisplayName() : null,
                             profile != null ? profile.getAvatarUrl()   : null
                     );
                 })
