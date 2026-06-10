@@ -7,6 +7,7 @@ import com.sofagames.backend.game.entity.Game;
 import com.sofagames.backend.game.repository.GameRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -23,14 +24,10 @@ public class GameService {
         this.gameRepository = gameRepository;
     }
 
-    // ── Método existente: lista paginada ──
-
     public Page<GameSummaryDTO> getAllGames(Pageable pageable) {
         Page<Game> gamePage = gameRepository.findAll(pageable);
         return gamePage.map(this::toSummaryDTO);
     }
-
-    // ── Método nuevo: detalle de un juego por ID ──
 
     /**
      * Busca un juego por su ID interno (no el steamAppId).
@@ -50,35 +47,28 @@ public class GameService {
         return toDetailDTO(game);
     }
 
-    // ── Métodos de mapeo privados ──
-
     private GameDetailDTO toDetailDTO(Game game) {
 
-        // Géneros: Set<Genre> → List<GenreDTO>
         List<GameDetailDTO.GenreDTO> genres = game.getGenres()
                 .stream()
                 .map(g -> new GameDetailDTO.GenreDTO(g.getId(), g.getName()))
                 .toList();
 
-        // Categorías: Set<Category> → List<CategoryDTO>
         List<GameDetailDTO.CategoryDTO> categories = game.getCategories()
                 .stream()
                 .map(c -> new GameDetailDTO.CategoryDTO(c.getId(), c.getName()))
                 .toList();
 
-        // Developers: Set<Developer> → List<String> (solo el nombre)
         List<String> developers = game.getDevelopers()
                 .stream()
                 .map(d -> d.getName())
                 .toList();
 
-        // Publishers: Set<Publisher> → List<String> (solo el nombre)
         List<String> publishers = game.getPublishers()
                 .stream()
                 .map(p -> p.getName())
                 .toList();
 
-        // Screenshots: Set<Screenshot> → List<ScreenshotDTO> ordenados por displayOrder
         List<GameDetailDTO.ScreenshotDTO> screenshots = game.getScreenshots()
                 .stream()
                 .sorted(Comparator.comparing(s -> s.getDisplayOrder()))
@@ -155,5 +145,53 @@ public class GameService {
                 new java.util.Locale("es", "CL")
         );
         return currency + "$ " + nf.format(units);
+    }
+
+    public List<GameSummaryDTO> getFeaturedGames() {
+
+        return gameRepository
+                .findByCollectionOrderByRecommendationsTotalDesc(
+                        "indie_latam",
+                        PageRequest.of(0, 4)
+                )
+                .stream()
+                .map(this::toSummaryDTO)
+                .toList();
+    }
+
+    public List<GameSummaryDTO> getSaleGames() {
+
+        return gameRepository
+                .findDiscountedGames(
+                        List.of("indie_latam", "indie_global"),
+                        PageRequest.of(0, 4)
+                )
+                .stream()
+                .map(this::toSummaryDTO)
+                .toList();
+    }
+
+    public List<GameSummaryDTO> getRecentGames() {
+
+        return gameRepository
+                .findByCollectionInOrderByReleaseDateDesc(
+                        List.of("indie_latam", "indie_global"),
+                        PageRequest.of(0, 4)
+                )
+                .stream()
+                .map(this::toSummaryDTO)
+                .toList();
+    }
+
+    public List<GameSummaryDTO> getTopRatedGames() {
+
+        return gameRepository
+                .findByCollectionInOrderByTotalPositiveDesc(
+                        List.of("indie_latam", "indie_global"),
+                        PageRequest.of(0, 4)
+                )
+                .stream()
+                .map(this::toSummaryDTO)
+                .toList();
     }
 }

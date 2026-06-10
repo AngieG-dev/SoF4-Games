@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/games")
@@ -45,5 +46,33 @@ public class GameController {
     @GetMapping("/{id}")
     public ResponseEntity<GameDetailDTO> getGameById(@PathVariable Long id) {
         return ResponseEntity.ok(gameService.getGameById(id));
+    }
+
+    @GetMapping("/featured")
+    public ResponseEntity<List<GameSummaryDTO>> getFeaturedGames() {
+        return ResponseEntity.ok(
+                gameService.getFeaturedGames()
+        );
+    }
+
+    @GetMapping("/sales")
+    public ResponseEntity<List<GameSummaryDTO>> getSaleGames() {
+        return ResponseEntity.ok(
+                gameService.getSaleGames()
+        );
+    }
+
+    @GetMapping("/recent")
+    public ResponseEntity<List<GameSummaryDTO>> getRecentGames() {
+        return ResponseEntity.ok(
+                gameService.getRecentGames()
+        );
+    }
+
+    @GetMapping("/top-rated")
+    public ResponseEntity<List<GameSummaryDTO>> getTopRatedGames() {
+        return ResponseEntity.ok(
+                gameService.getTopRatedGames()
+        );
     }
 }

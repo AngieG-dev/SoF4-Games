@@ -4,31 +4,37 @@ import { gameService } from '../services/gameService'
 import HeroCarousel from '../components/store/HeroCarousel'
 import GameSection  from '../components/store/GameSection'
 
-const HERO_IDS = [153, 20, 190, 27]
-
 export default function StorePage() {
 
-    const [games,   setGames]   = useState<Game[]>([])
+    const [heroGames, setHeroGames] = useState<Game[]>([])
+    const [saleGames, setSaleGames] = useState<Game[]>([])
+    const [recentGames, setRecentGames] = useState<Game[]>([])
+    const [topRatedGames, setTopRatedGames] = useState<Game[]>([])
     const [loading, setLoading] = useState(true)
     const [error,   setError]   = useState<string | null>(null)
 
-
     useEffect(() => {
-        gameService.getAll()
-            .then(data => {
-                setGames(data)
+        Promise.all([
+            gameService.getFeaturedGames(),
+            gameService.getSaleGames(),
+            gameService.getRecentGames(),
+            gameService.getTopRatedGames(),
+        ])
+            .then(([featured, sales, recent, topRated]) => {
+
+                setHeroGames(featured)
+                setSaleGames(sales)
+                setRecentGames(recent)
+                setTopRatedGames(topRated)
+
                 setLoading(false)
             })
             .catch((err: Error) => {
                 setError(err.message)
                 setLoading(false)
             })
-    }, [])
 
-    const heroGames     = games.filter(g => HERO_IDS.includes(g.id))
-    const saleGames = games.filter(g => (g.discount_percent ?? g.price_overview?.discount_percent ?? 0) > 0)
-    const recentGames   = [...games].reverse().slice(0, 4)
-    const topRatedGames = [...games].sort((a, b) => b.total_positive - a.total_positive).slice(0, 4)
+    }, [])
 
     if (loading) {
         return (

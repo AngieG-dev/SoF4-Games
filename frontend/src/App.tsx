@@ -4,6 +4,7 @@ import Footer from './components/layout/Footer'
 import StorePage from './pages/StorePage'
 import GamePage from './pages/GamePage'
 import LoginPage from './pages/LoginPage'
+import ProfilePage from './pages/ProfilePage'
 import LibraryPage from "./pages/LibraryPage.tsx"
 import PrivateRoute from './components/PrivateRoute'
 import CartPage from './pages/CartPage'
@@ -25,7 +26,7 @@ function AppContent() {
         <Route element={<PrivateRoute />}>
           <Route path="/cart"     element={<CartPage />} />
           <Route path="/library"  element={<LibraryPage />} />
-          <Route path="/profile"  element={<div>Perfil - por hacer</div>} />
+          <Route path="/profile"  element={<ProfilePage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/friends"  element={<div>Amigos - por hacer</div>} />
         </Route>
