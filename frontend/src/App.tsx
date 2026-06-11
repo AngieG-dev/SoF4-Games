@@ -3,13 +3,17 @@ import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import StorePage from './pages/StorePage'
 import GamePage from './pages/GamePage'
+import GamesPage from './pages/GamesPage'
 import LoginPage from './pages/LoginPage'
 import ProfilePage from './pages/ProfilePage'
-import LibraryPage from "./pages/LibraryPage.tsx"
+import LibraryPage from "./pages/LibraryPage"
 import PrivateRoute from './components/PrivateRoute'
 import CartPage from './pages/CartPage'
 import CheckoutPage from './pages/CheckoutPage'
 import SearchResultsPage from './pages/SearchResultsPage'
+import SalesPage from './pages/SalesPage'
+import RecentPage from './pages/RecentPage'
+import TopRatedPage from './pages/TopRatedPage'
 import { CartProvider, useCart } from './context/CartContext'
 
 function AppContent() {
@@ -19,10 +23,14 @@ function AppContent() {
       <Navbar cartCount={cartCount} />
       <Routes>
         {/* Rutas públicas */}
-        <Route path="/"         element={<StorePage />} />
-        <Route path="/game/:id" element={<GamePage />} />
-        <Route path="/search"   element={<SearchResultsPage />} />
-        <Route path="/login"    element={<LoginPage />} />
+        <Route path="/"             element={<StorePage />} />
+        <Route path="/games"        element={<GamesPage />} />  {/* Games page with filters and pagination */}
+        <Route path="/game/:id"     element={<GamePage />} />   {/* Individual game page */}
+        <Route path="/search"       element={<SearchResultsPage />} />
+        <Route path="/store/sales"  element={<SalesPage />} />
+        <Route path="/store/new"    element={<RecentPage />} />
+        <Route path="/store/top-rated" element={<TopRatedPage />} />
+        <Route path="/login"        element={<LoginPage />} />
 
         {/* Rutas protegidas: requieren sesión iniciada */}
         <Route element={<PrivateRoute />}>

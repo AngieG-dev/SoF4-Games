@@ -1,4 +1,5 @@
 import type { Game } from '../types'
+import type { PageResponse } from '../types/pageResponse'
 import type { GameDetail } from '../types/game'
 import { getCachedData } from '../utils/cache'
 
@@ -17,8 +18,10 @@ export const gameService = {
      * { "content": [...], "totalPages": 5, "totalElements": 98, ... }
      * Solo extraemos "content" que es el array de juegos.
      */
-    getAll: async (page = 0, size = 20): Promise<Game[]> => {
-        const url = `${BASE_URL}/games?page=${page}&size=${size}`
+    getAll: async (page = 0, size = 20, sort?: string): Promise<Game[]> => {
+        let url = `${BASE_URL}/games?page=${page}&size=${size}`
+
+        if (sort) { url += `&sort=${sort}` }
 
         const response = await fetch(url)
 
@@ -29,6 +32,25 @@ export const gameService = {
         const data = await response.json()
 
         return data.content as Game[]
+    },
+
+    getPage: async (
+        page = 0,
+        size = 20,
+        sort?: string
+    ): Promise<PageResponse<Game>> => {
+
+        let url = `${BASE_URL}/games?page=${page}&size=${size}`
+
+        if (sort) { url += `&sort=${sort}` }
+
+        const response = await fetch(url)
+
+        if (!response.ok) {
+            throw new Error(`Error al obtener juegos: ${response.status}`)
+        }
+
+        return response.json()
     },
 
     /**
