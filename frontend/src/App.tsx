@@ -9,6 +9,7 @@ import LibraryPage from "./pages/LibraryPage.tsx"
 import PrivateRoute from './components/PrivateRoute'
 import CartPage from './pages/CartPage'
 import CheckoutPage from './pages/CheckoutPage'
+import SearchResultsPage from './pages/SearchResultsPage'
 import { CartProvider, useCart } from './context/CartContext'
 
 function AppContent() {
@@ -20,6 +21,7 @@ function AppContent() {
         {/* Rutas públicas */}
         <Route path="/"         element={<StorePage />} />
         <Route path="/game/:id" element={<GamePage />} />
+        <Route path="/search"   element={<SearchResultsPage />} />
         <Route path="/login"    element={<LoginPage />} />
 
         {/* Rutas protegidas: requieren sesión iniciada */}

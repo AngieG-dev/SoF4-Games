@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { ShoppingCart, Search, X, Gamepad2, User, Users, BookOpen, Store } from 'lucide-react'
 import FriendsSidebar from '../FriendsSidebar'
 import { getPendingRequests } from '../../services/friendsService'
+import { gameService } from '../../services/gameService'
+import type { Game } from '../../types'
 
 interface NavbarProps {
     cartCount?: number
@@ -11,10 +13,13 @@ interface NavbarProps {
 export default function Navbar({ cartCount = 0 }: NavbarProps) {
     const [searchOpen, setSearchOpen]     = useState(false)
     const [searchQuery, setSearchQuery]   = useState('')
+    const [searchResults, setSearchResults] = useState<Game[]>([])
+    const [showSuggestions, setShowSuggestions] = useState(false)
     const [mobileSearch, setMobileSearch] = useState('')
     const [sidebarOpen, setSidebarOpen]   = useState(false)
     const [pendingCount, setPendingCount] = useState(0)
     const searchInputRef                  = useRef<HTMLInputElement>(null)
+    const searchRef                       = useRef<HTMLDivElement>(null)
     const location                        = useLocation()
     const navigate                        = useNavigate()
     const [userMenuOpen, setUserMenuOpen] = useState(false)
@@ -39,7 +44,13 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
                 userMenuRef.current &&
                 !userMenuRef.current.contains(e.target as Node)
             ) { setUserMenuOpen(false) }
+
+            if (
+                searchRef.current &&
+                !searchRef.current.contains(e.target as Node)
+            ) { setShowSuggestions(false) }
         }
+
         document.addEventListener('mousedown', handleClickOutside)
         return () => document.removeEventListener('mousedown', handleClickOutside)
     }, [])
@@ -54,6 +65,33 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
         return () => clearInterval(interval)
     }, [])
 
+    useEffect(() => {
+        const query = searchQuery.trim()
+
+        if (query.length < 2) {
+            setSearchResults([])
+            setShowSuggestions(false)
+            return
+        }
+
+        const timeout = setTimeout(() => {
+            gameService
+                .search(query, 0, 5)
+                .then(results => {
+                    setSearchResults(results)
+                    setShowSuggestions(true)
+                })
+                .catch(() => {
+                    setSearchResults([])
+                    setShowSuggestions(false)
+                })
+
+        }, 250)
+
+        return () => clearTimeout(timeout)
+
+    }, [searchQuery])
+
     const isActive = (path: string) => location.pathname === path || location.pathname.startsWith(path + '/')
 
     const handleLogout = () => {
@@ -62,6 +100,15 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
         localStorage.removeItem('username')
         navigate('/')
         setUserMenuOpen(false)
+    }
+
+    const performSearch = (query: string) => {
+        const trimmed = query.trim()
+        if (!trimmed) return
+
+        setShowSuggestions(false)
+
+        navigate(`/search?q=${encodeURIComponent(trimmed)}`)
     }
 
     return (
@@ -103,7 +150,11 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
                     <div className="flex items-center gap-1 sm:gap-2" style={{ marginRight: '1.5rem' }}>
 
                         {/* Búsqueda expandible — solo desktop */}
-                        <div className="hidden lg:flex items-center">
+                        <div 
+                            ref={searchRef}
+                            className="hidden lg:flex items-center"
+                            style={{ position: 'relative' }}
+                        >
                             <div
                                 className="overflow-hidden transition-all duration-300 ease-in-out"
                                 style={{ width: searchOpen ? '220px' : '0px' }}
@@ -113,7 +164,8 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
                                     type="text"
                                     value={searchQuery}
                                     onChange={e => setSearchQuery(e.target.value)}
-                                    placeholder="Buscar juegos, tags…"
+                                    onKeyDown={e => { if (e.key === 'Enter') { performSearch(searchQuery) }}}
+                                    placeholder="Buscar juegos"
                                     className="w-full h-8 px-3 text-sm bg-transparent outline-none"
                                     style={{
                                         border: 'none',
@@ -133,6 +185,45 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
                             >
                                 {searchOpen ? <X size={18} /> : <Search size={18} />}
                             </button>
+
+                            {/* Dropdown */}
+                            {showSuggestions && searchResults.length > 0 && (
+                                <div
+                                    style={{
+                                        position: 'absolute',
+                                        top: '100%',
+                                        left: 0,
+                                        width: '220px',
+                                        marginTop: '0.5rem',
+                                        background: 'var(--color-bg-card)',
+                                        border: '1px solid var(--color-border)',
+                                        borderRadius: '0.75rem',
+                                        overflow: 'hidden',
+                                        zIndex: 1000,
+                                        boxShadow: '0 0 20px rgba(0,0,0,0.35)',
+                                    }}
+                                >
+                                    {searchResults.map(game => (
+                                        <Link
+                                            key={game.id}
+                                            to={`/game/${game.id}`}
+                                            onClick={() => {
+                                                setShowSuggestions(false)
+                                                setSearchOpen(false)
+                                                setSearchQuery('')
+                                            }}
+                                            className="block px-3 py-2 text-sm"
+                                            style={{
+                                                color: 'var(--color-text)',
+                                                borderBottom: '1px solid var(--color-border)',
+                                                padding: '0.5rem 1rem',
+                                            }}
+                                        >
+                                            {game.name}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
                         </div>
 
                         {/* Amigos */}
@@ -282,6 +373,7 @@ export default function Navbar({ cartCount = 0 }: NavbarProps) {
                             el.style.background = '#cc00a6'
                             setTimeout(() => { el.style.background = 'var(--color-accent)' }, 150)
                         }}
+                        onClick={() => performSearch(mobileSearch)}
                     >
                         Buscar
                     </button>

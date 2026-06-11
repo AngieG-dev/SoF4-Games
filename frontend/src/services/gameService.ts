@@ -55,6 +55,23 @@ export const gameService = {
         )
     },
 
+    search: async (
+        query: string,
+        page = 0,
+        size = 20
+    ): Promise<Game[]> => {
+
+        const response = await fetch(`${BASE_URL}/games/search?q=${encodeURIComponent(query)}&page=${page}&size=${size}`)
+
+        if (!response.ok) {
+            throw new Error(`Error al buscar juegos: ${response.status}`)
+        }
+
+        const data = await response.json()
+
+        return data.content as Game[]
+    },
+
     getFeaturedGames: async (): Promise<Game[]> => {
         return getCachedData(
             'featured-games',

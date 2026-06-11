@@ -1,6 +1,7 @@
 package com.sofagames.backend.game.repository;
 
 import com.sofagames.backend.game.entity.Game;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -23,6 +24,11 @@ public interface GameRepository extends JpaRepository<Game, Long> {
 
     List<Game> findByCollectionInOrderByReleaseDateDesc(
             List<String> collections,
+            Pageable pageable
+    );
+
+    Page<Game> findByNameContainingIgnoreCase(
+            String name,
             Pageable pageable
     );
 

@@ -149,6 +149,18 @@ public class GameService {
         return currency + "$ " + nf.format(units);
     }
 
+    public Page<GameSummaryDTO> searchGames(
+            String query,
+            Pageable pageable
+    ) {
+        return gameRepository
+                .findByNameContainingIgnoreCase(
+                        query,
+                        pageable
+                )
+                .map(this::toSummaryDTO);
+    }
+
     @Cacheable("featured-games")
     public List<GameSummaryDTO> getFeaturedGames() {
 

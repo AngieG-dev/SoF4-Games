@@ -48,6 +48,17 @@ public class GameController {
         return ResponseEntity.ok(gameService.getGameById(id));
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<Page<GameSummaryDTO>> searchGames(
+            @RequestParam String q,
+            @PageableDefault(page = 0, size = 20) Pageable pageable
+    ) {
+
+        return ResponseEntity.ok(
+                gameService.searchGames(q, pageable)
+        );
+    }
+
     @GetMapping("/featured")
     public ResponseEntity<List<GameSummaryDTO>> getFeaturedGames() {
         return ResponseEntity.ok(
