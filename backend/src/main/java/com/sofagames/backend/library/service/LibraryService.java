@@ -25,6 +25,7 @@ public class LibraryService {
 
     private LibraryItemDTO toDTO(Purchase purchase) {
         return new LibraryItemDTO(
+                purchase.getGame().getId(),
                 purchase.getGame().getSteamAppId(),
                 purchase.getGame().getName(),
                 purchase.getGame().getHeaderImage(),

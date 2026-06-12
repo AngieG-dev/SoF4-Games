@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import type { LibraryItem } from '../types/library'
 import { getLibrary } from '../services/libraryService'
+import { useNavigate } from 'react-router-dom'
 
 export default function LibraryPage() {
     const [games, setGames] = useState<LibraryItem[]>([])
@@ -8,6 +9,9 @@ export default function LibraryPage() {
     const [error, setError] = useState<string | null>(null)
     const [selected, setSelected] = useState<LibraryItem | null>(null)
     const [hoveredId, setHoveredId] = useState<number | null>(null)
+    const [search, setSearch] = useState('')
+    const navigate = useNavigate()
+    const [hoveredStore, setHoveredStore] = useState(false)
 
     useEffect(() => {
         getLibrary()
@@ -21,6 +25,10 @@ export default function LibraryPage() {
         <main className="min-h-screen flex items-center justify-center" style={{ background: 'var(--color-bg)', paddingTop: 'var(--nav-height)' }}>
             <p style={{ color: 'var(--color-text-muted)' }}>{msg}</p>
         </main>
+    )
+
+    const filteredGames = games.filter(g =>
+        g.name.toLowerCase().includes(search.toLowerCase())
     )
 
     if (loading) return centered('Cargando biblioteca...')
@@ -63,10 +71,14 @@ export default function LibraryPage() {
             {/* Sidebar */}
             <aside className="flex-shrink-0 flex flex-col" style={{ width: '260px', minHeight: 'calc(100vh - var(--nav-height))', background: 'var(--color-surface)', borderRight: '1px solid var(--color-border)' }}>
                 <div style={{ padding: '0.75rem', borderBottom: '1px solid var(--color-border)' }}>
-                    <input type="text" placeholder="Buscar en biblioteca..." className="w-full rounded-md text-sm" style={{ padding: '8px 12px', background: 'var(--color-input)', border: '1px solid var(--color-border)', color: 'var(--color-text)', outline: 'none' }} />
+                    <input type="text" placeholder="Buscar en biblioteca..."
+                        value={search}
+                        onChange={e => setSearch(e.target.value)}
+                        className="w-full rounded-md text-sm"
+                        style={{ padding: '8px 12px', background: 'var(--color-input)', border: '1px solid var(--color-border)', color: 'var(--color-text)', outline: 'none' }}/>
                 </div>
                 <ul className="flex-1 overflow-y-auto" style={{ padding: '0.5rem' }}>
-                    {games.map((game) => {
+                    {filteredGames.map((game) => {
                         const active = selected?.steamAppId === game.steamAppId
                         return (
                             <li key={game.steamAppId}>
@@ -79,7 +91,7 @@ export default function LibraryPage() {
                     })}
                 </ul>
                 <div className="text-xs text-center" style={{ padding: '0.75rem', color: 'var(--color-text-muted)', borderTop: '1px solid var(--color-border)' }}>
-                    · · · {games.length} juego{games.length !== 1 ? 's' : ''} · · ·
+                    · · · {filteredGames.length} juego{filteredGames.length !== 1 ? 's' : ''} · · ·
                 </div>
             </aside>
 
@@ -90,7 +102,7 @@ export default function LibraryPage() {
                         <div className="w-full overflow-hidden" style={{ height: '240px' }}>
                             <img src={selected.headerImage} alt={selected.name} className="w-full h-full object-cover" style={{ filter: 'brightness(0.75)' }} />
                         </div>
-                        <div style={{ padding: '0 2rem' }}>
+                        <div style={{ margin: '1rem',padding: '0 2rem' }}>
                             <div className="flex items-center justify-between gap-4 py-6" style={{ borderBottom: '1px solid var(--color-border)' }}>
                                 <div>
                                     <h1 className="text-2xl font-bold mb-1" style={{ color: 'var(--color-text)', fontFamily: 'var(--font-title)' }}>{selected.name}</h1>
@@ -98,7 +110,20 @@ export default function LibraryPage() {
                                 </div>
                                 <div className="flex gap-3 flex-shrink-0">
                                     <button className="rounded-md font-semibold text-sm transition-all duration-200" style={{ padding: '8px 20px', background: 'linear-gradient(135deg, var(--color-accent), var(--color-accent-alt))', color: '#fff', border: 'none', cursor: 'pointer', boxShadow: 'var(--glow-accent)', fontFamily: 'var(--font-cta)' }}>▶ Jugar</button>
-                                    <button className="rounded-md font-semibold text-sm" style={{ padding: '8px 20px', background: 'transparent', color: 'var(--color-text)', border: '1px solid var(--color-border)', cursor: 'pointer', fontFamily: 'var(--font-cta)' }}>Ver en tienda</button>
+                                    <button
+                                        onMouseEnter={() => setHoveredStore(true)}
+                                        onMouseLeave={() => setHoveredStore(false)}
+                                        onClick={() => navigate(`/game/${selected.id}`)}
+                                        className="rounded-md font-semibold text-sm"
+                                        style={{
+                                            padding: '8px 20px',
+                                            background: 'transparent',
+                                            color: hoveredStore ? '#00e5ff' : 'var(--color-text)',
+                                            border: `1px solid ${hoveredStore ? '#00e5ff' : 'var(--color-border)'}`,
+                                            cursor: 'pointer',
+                                            fontFamily: 'var(--font-cta)',
+                                            transition: 'border-color 0.2s ease, color 0.2s ease'
+                                        }}>Ver en tienda</button>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4 py-4" style={{ borderBottom: '1px solid var(--color-border)' }}>
@@ -128,7 +153,7 @@ export default function LibraryPage() {
                         </div>
                         <p className="text-sm" style={{ color: 'var(--color-text-muted)', marginBottom: '2rem' }}>{games.length} juegos en tu biblioteca</p>
                         <div className="grid gap-6" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
-                            {games.map(game => <LibraryCard key={game.steamAppId} game={game} />)}
+                            {filteredGames.map(game => <LibraryCard key={game.steamAppId} game={game} />)}
                         </div>
                     </div>
                 )}
